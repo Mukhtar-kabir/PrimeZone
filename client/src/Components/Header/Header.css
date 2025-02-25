@@ -1,0 +1,55 @@
+header {
+  background: #04042c;
+  padding: 0.5rem;
+}
+
+header .items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: sans-serif;
+  width: 80%;
+  margin: auto;
+}
+
+header .center {
+  background: #fafafa;
+  display: flex;
+  align-items: center;
+  width: 25%;
+}
+
+header .center input {
+  border: none;
+  padding: 0.5rem;
+  border-radius: 5px;
+  background: none;
+  outline: none;
+  width: 90%;
+}
+
+header .center button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+header .items .left img {
+  width: 5rem;
+}
+
+header .items .right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+header .items .right .link {
+  list-style: none;
+  text-decoration: none;
+  color: #fafafa;
+}
+
+header .items .right .link:hover {
+  color: #dddddd;
+}
