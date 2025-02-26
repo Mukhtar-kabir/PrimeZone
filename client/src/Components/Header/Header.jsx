@@ -31,7 +31,7 @@ const Header = () => {
             <li>Properties</li>
           </Link>
 
-          <Link to="/profile" className="link">
+          <Link to="/sign-up" className="link">
             <li>Client Potal</li>
           </Link>
 
