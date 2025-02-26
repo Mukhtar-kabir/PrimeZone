@@ -77,7 +77,7 @@ const SignUp = () => {
         </Link>
       </div>
 
-      {error && <p>{error}</p>}
+      {error && <p>User already exist. Try to Sign In</p>}
     </div>
   );
 };

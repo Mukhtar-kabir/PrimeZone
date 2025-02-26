@@ -1,0 +1,94 @@
+body {
+  background: #e6e6e6;
+}
+
+.signin h1 {
+  text-align: center;
+  font-family: sans-serif;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.signin form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  gap: 1rem;
+  width: 50%;
+  margin: auto;
+}
+
+.signin form input {
+  width: 60%;
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1px solid #fff;
+  outline: none;
+}
+
+.signin form button {
+  width: 60%;
+  border: none;
+  background: #04042c;
+  color: #fafafa;
+  padding: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+/* .signin form .disabled {
+    opacity: 0.5;
+  } */
+
+.signin form button:hover {
+  background: #191949;
+}
+
+.signin .haveAnAccount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-family: sans-serif;
+}
+
+.signin .haveAnAccount .link {
+  text-decoration: none;
+}
+
+.signin .error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f04040;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .signin h1 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .signin form {
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  .signin form input {
+    width: 50%;
+    padding: 0.5rem;
+  }
+
+  .signin form button {
+    width: 50%;
+    padding: 0.5rem;
+  }
+
+  .signin .haveAnAccount {
+    font-size: 0.8rem;
+  }
+}

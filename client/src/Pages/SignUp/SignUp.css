@@ -58,3 +58,29 @@ body {
 .signup .haveAnAccount .link {
   text-decoration: none;
 }
+
+@media (max-width: 900px) {
+  .signup h1 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .signup form {
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  .signup form input {
+    width: 50%;
+    padding: 0.5rem;
+  }
+
+  .signup form button {
+    width: 50%;
+    padding: 0.5rem;
+  }
+
+  .signup .haveAnAccount {
+    font-size: 0.8rem;
+  }
+}
