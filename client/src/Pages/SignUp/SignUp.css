@@ -39,6 +39,10 @@ body {
   text-transform: uppercase;
 }
 
+/* .signup form .disabled {
+  opacity: 0.5;
+} */
+
 .signup form button:hover {
   background: #191949;
 }
