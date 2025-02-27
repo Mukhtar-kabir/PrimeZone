@@ -18,6 +18,12 @@ const UserSchema = new mongoose.Schema(
       type: String,
       require: true,
     },
+
+    avatar: {
+      type: String,
+      default:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1hIiQRnLbjQWO-iqNOdhuDSzuieyWRGr8WX9WIf4WZ5g7-opy4_xoccI&s",
+    },
   },
   { timestamps: true }
 );

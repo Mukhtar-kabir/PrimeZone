@@ -7,6 +7,7 @@ import {
   sigInSuccess,
   signInFailure,
 } from "../../redux/user/userSlice.js";
+import OAuth from "../../Components/OAuth/OAuth.jsx";
 
 const SignIn = () => {
   const [formData, setFormData] = useState({});
@@ -47,7 +48,7 @@ const SignIn = () => {
 
   return (
     <div className="signin">
-      <h1>Sing In</h1>
+      <h1>Sign In</h1>
 
       <form onSubmit={handleSubmit}>
         <input
@@ -65,6 +66,8 @@ const SignIn = () => {
         <button disabled={loading} className="disabled">
           {loading ? "Loading..." : "Sign In"}
         </button>
+
+        <OAuth className="aouth" />
       </form>
 
       <div className="haveAnAccount">

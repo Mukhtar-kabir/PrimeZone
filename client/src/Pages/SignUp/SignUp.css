@@ -20,6 +20,14 @@ body {
   margin: auto;
 }
 
+.signup .oauth {
+  background-color: #6060f3;
+}
+
+.signup .oauth:hover {
+  background-color: #4c4cf7;
+}
+
 .signup form input {
   width: 60%;
   padding: 1rem;

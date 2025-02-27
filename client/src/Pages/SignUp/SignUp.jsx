@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../SignUp/SignUp.css";
 import { Link, useNavigate } from "react-router-dom";
+import OAuth from "../../Components/OAuth/OAuth.jsx";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({});
@@ -68,6 +69,8 @@ const SignUp = () => {
         <button disabled={loading} className="disabled">
           {loading ? "Loading..." : "Sign Up"}
         </button>
+
+        <OAuth className="oauth" />
       </form>
 
       <div className="haveAnAccount">

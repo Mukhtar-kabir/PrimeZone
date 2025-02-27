@@ -47,6 +47,14 @@ body {
   background: #191949;
 }
 
+.signin .oauth {
+  background-color: #6060f3;
+}
+
+.signin .oauth:hover {
+  background-color: #4c4cf7;
+}
+
 .signin .haveAnAccount {
   display: flex;
   align-items: center;
