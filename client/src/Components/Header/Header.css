@@ -53,3 +53,8 @@ header .items .right .link {
 header .items .right .link:hover {
   color: #dddddd;
 }
+
+header .items .right .profile img {
+  border-radius: 5rem;
+  width: 3rem;
+}
