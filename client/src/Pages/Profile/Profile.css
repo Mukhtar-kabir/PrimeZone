@@ -7,11 +7,19 @@
 
 .profile img {
   width: 5rem;
+  height: 5rem;
+  object-fit: cover;
   border-radius: 5rem;
   cursor: pointer;
   display: flex;
   margin: auto;
   margin-bottom: 1rem;
+}
+
+.profile .uploading {
+  text-align: center;
+  font-family: sans-serif;
+  color: #2c922c;
 }
 
 .profile form {
