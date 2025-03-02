@@ -72,3 +72,15 @@
 .profile form .items span:hover {
   color: #f15050;
 }
+
+.profile .error {
+  color: #f15050;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.profile .success {
+  color: #2c922c;
+  text-align: center;
+  font-family: sans-serif;
+}

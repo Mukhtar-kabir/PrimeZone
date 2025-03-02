@@ -30,6 +30,10 @@ export const UpdateUser = async (req, res, next) => {
       { new: true }
     );
 
+    if (!updatedUser) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
     const { password, ...rest } = updatedUser._doc;
     res.status(200).json(rest);
   } catch (error) {

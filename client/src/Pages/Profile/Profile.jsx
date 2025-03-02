@@ -2,14 +2,26 @@ import React, { useState, useRef } from "react";
 import "../Profile/Profile.css";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
+import {
+  updateUserStart,
+  updateUserSuccess,
+  updateUserFailure,
+} from "../../redux/user/userSlice";
 
 const Profile = () => {
   const fileRef = useRef(null);
-  const { currentUser } = useSelector((state) => state.user);
+  const { currentUser, loading, error } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const [file, setFile] = useState(null);
   const [avatarUrl, setAvatarUrl] = useState(currentUser.avatar);
   const [uploading, setUploading] = useState(false);
+  const [updateSuccess, setUpdateSuccess] = useState(false);
+  const [formData, setFormData] = useState({
+    username: currentUser.username,
+    email: currentUser.email,
+    avatar: currentUser.avatar,
+  });
+  console.log("Form Data", formData);
 
   const handleFileChange = async (e) => {
     const selectedFile = e.target.files[0];
@@ -26,13 +38,17 @@ const Profile = () => {
     formData.append("upload_preset", "ml_default"); // Set in Cloudinary settings
 
     try {
-      const response = await axios.put(
+      const response = await axios.post(
         "https://api.cloudinary.com/v1_1/drhqzdtnz/image/upload",
         formData
       );
 
-      setAvatarUrl(response.data.secure_url);
-      updateUserProfile(response.data.secure_url);
+      const newAvatarUrl = response.data.secure_url;
+      setAvatarUrl(newAvatarUrl); // Update preview
+      setFormData((prev) => ({ ...prev, avatar: newAvatarUrl }));
+
+      // setAvatarUrl(response.data.secure_url);
+      // updateUserProfile(response.data.secure_url);
     } catch (error) {
       console.error("Error uploading image:", error);
     } finally {
@@ -40,19 +56,34 @@ const Profile = () => {
     }
   };
 
-  const updateUserProfile = async (newAvatarUrl) => {
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  // Handle Form Submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
     try {
-      await axios.put("/api/user/update-avatar", {
-        userId: currentUser._id,
-        avatar: newAvatarUrl,
+      dispatch(updateUserStart());
+      const res = await fetch(`/api/user/update/${currentUser._id}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
 
-      console.log("Profile updated successfully:", response.data);
+      const data = await res.json();
+      if (data.success === false) {
+        dispatch(updateUserFailure(data.message));
+        return;
+      }
 
-      // Dispatch updated user info to Redux (assuming you have a Redux action for this)
-      dispatch({ type: "UPDATE_USER_AVATAR", payload: newAvatarUrl });
+      dispatch(updateUserSuccess(data));
+      setUpdateSuccess(true);
     } catch (error) {
-      console.error("Error updating profile:", error);
+      dispatch(updateUserFailure(error.message));
     }
   };
 
@@ -83,17 +114,36 @@ const Profile = () => {
 
       {uploading && <p className="uploading">Uploading...</p>}
 
-      <form>
-        <input type="username" placeholder="username" id="username" />
-        <input type="email" placeholder="email" id="email" />
+      <form onSubmit={handleSubmit}>
+        <input
+          defaultValue={currentUser.username}
+          type="username"
+          placeholder="username"
+          id="username"
+          onClick={handleChange}
+        />
+        <input
+          defaultValue={currentUser.email}
+          type="email"
+          placeholder="email"
+          id="email"
+          onClick={handleChange}
+        />
         <input type="password" placeholder="password" id="password" />
-        <button className="disabled">update</button>
+        <button disabled={loading} className="disabled">
+          {loading ? "Loading..." : "Update"}
+        </button>
 
         <div className="items">
           <span>Delete account</span>
           <span>Sign Out</span>
         </div>
       </form>
+
+      <p className="error">{error ? "Fialed to Update" : ""}</p>
+      <p className="success">
+        {updateSuccess ? "User is updated successfully!" : ""}
+      </p>
     </div>
   );
 };
