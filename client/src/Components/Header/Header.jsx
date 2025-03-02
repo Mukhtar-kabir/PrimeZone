@@ -46,6 +46,13 @@ const Header = () => {
                   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1hIiQRnLbjQWO-iqNOdhuDSzuieyWRGr8WX9WIf4WZ5g7-opy4_xoccI&s"
                 }
                 alt="profile"
+                style={{
+                  cursor: "pointer",
+                  objectFit: "cover",
+                  height: "3rem",
+                  width: "3rem",
+                  marginTop: "1rem",
+                }}
               />
             ) : (
               <li>Client Potal</li>

@@ -73,6 +73,12 @@ const Profile = () => {
         src={avatarUrl}
         alt="profile"
         onClick={() => fileRef.current.click()}
+        style={{
+          cursor: "pointer",
+          objectFit: "cover",
+          height: "5rem",
+          width: "5rem",
+        }}
       />
 
       {uploading && <p className="uploading">Uploading...</p>}
