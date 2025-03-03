@@ -84,3 +84,30 @@
   text-align: center;
   font-family: sans-serif;
 }
+
+@media (max-width: 900px) {
+  .profile h1 {
+    font-size: 0.8rem;
+  }
+
+  .profile img {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .profile form {
+    width: 100%;
+  }
+
+  .profile form input {
+    width: 100%;
+  }
+
+  .profile form button {
+    width: 100%;
+  }
+
+  .profile form .items {
+    font-size: 0.8rem;
+  }
+}
