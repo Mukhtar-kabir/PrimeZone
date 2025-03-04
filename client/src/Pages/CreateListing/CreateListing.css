@@ -95,6 +95,42 @@
   background: #101053;
 }
 
+.create-listing .inputs .error {
+  color: #fc5252;
+  font-family: sans-serif;
+  font-size: 0.8rem;
+}
+
+.create-listing .inputs .image-previews .image-preview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #c9c9c9;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.create-listing .inputs .image-previews .image-preview img {
+  width: 4rem;
+  height: 4rem;
+  object-fit: cover;
+}
+
+.create-listing .inputs .image-previews .image-preview button {
+  border: none;
+  background: #fc5252;
+  padding: 0.8rem;
+  border-radius: 5px;
+  color: #fafafa;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.create-listing .inputs .image-previews .image-preview button:hover {
+  background-color: #f16565;
+}
+
 @media (max-width: 900px) {
   .create-listing h1 {
     font-size: 0.8rem;
