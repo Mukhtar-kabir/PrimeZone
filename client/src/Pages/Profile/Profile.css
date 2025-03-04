@@ -57,6 +57,24 @@
   background: #191949;
 }
 
+.profile form .listing {
+  text-decoration: none;
+  width: 60%;
+  border: none;
+  background: #2c922c;
+  color: #fafafa;
+  padding: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.profile form .listing:hover {
+  background: #39b939;
+}
+
 .profile form .items {
   display: flex;
   align-items: center;
@@ -104,6 +122,10 @@
   }
 
   .profile form button {
+    width: 100%;
+  }
+
+  .profile form .listing {
     width: 100%;
   }
 

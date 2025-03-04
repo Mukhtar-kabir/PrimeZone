@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import "../Profile/Profile.css";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import {
   updateUserStart,
   updateUserSuccess,
@@ -172,6 +173,10 @@ const Profile = () => {
         <button disabled={loading} className="disabled">
           {loading ? "Loading..." : "Update"}
         </button>
+
+        <Link to={"/create-listing"} className="listing">
+          Create Listing
+        </Link>
 
         <div className="items">
           <span onClick={handleDeleteUser}>Delete account</span>
