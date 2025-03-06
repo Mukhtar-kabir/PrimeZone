@@ -23,6 +23,8 @@ const Profile = () => {
   const [avatarUrl, setAvatarUrl] = useState(currentUser.avatar);
   const [uploading, setUploading] = useState(false);
   const [updateSuccess, setUpdateSuccess] = useState(false);
+  const [showListingsError, setShowListingsError] = useState(false);
+  const [userListings, setUserListings] = useState([]);
   const [formData, setFormData] = useState({
     username: currentUser.username,
     email: currentUser.email,
@@ -127,6 +129,28 @@ const Profile = () => {
     }
   };
 
+  const handleShowListings = async () => {
+    try {
+      setShowListingsError(false);
+      const res = await fetch(`/api/user/listings/${currentUser._id}`);
+      const data = await res.json();
+
+      if (!data.success) {
+        setShowListingsError(true);
+        return;
+      }
+
+      // if (data.success === false) {
+      //   setShowListingsError(true);
+      //   return;
+      // }
+
+      setUserListings(data.listings);
+    } catch (error) {
+      setShowListingsError(true);
+    }
+  };
+
   return (
     <div className="profile">
       <h1>Profile</h1>
@@ -188,6 +212,38 @@ const Profile = () => {
       <p className="success">
         {updateSuccess ? "User is updated successfully!" : ""}
       </p>
+      <button onClick={handleShowListings} className="show-listings">
+        Show Listings
+      </button>
+      <p>{showListingsError ? "Error showing listings" : ""}</p>
+
+      {userListings && userListings.length > 0 && (
+        <div className="">
+          <h1 className="">Your Listings</h1>
+          {userListings.map((listing) => (
+            <div key={listing._id} className="listing-showing">
+              <Link to={`/listing/${listing._id}`}>
+                <img src={listing.imageUrls[0]} alt="listing cover" />
+              </Link>
+              <Link className="" to={`/listing/${listing._id}`}>
+                <p>{listing.name}</p>
+              </Link>
+
+              <div className="listing-showing_button">
+                <button
+                  className="delete"
+                  onClick={() => handleListingDelete(listing._id)}
+                >
+                  Delete
+                </button>
+                <Link to={`/update-listing/${listing._id}`}>
+                  <button className="edit">Edit</button>
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

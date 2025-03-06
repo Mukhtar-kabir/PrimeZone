@@ -6,9 +6,6 @@
 }
 
 .profile img {
-  width: 5rem;
-  height: 5rem;
-  object-fit: cover;
   border-radius: 5rem;
   cursor: pointer;
   display: flex;
@@ -103,6 +100,62 @@
   font-family: sans-serif;
 }
 
+.profile .show-listings {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  background: none;
+  color: #2c922c;
+  text-decoration: underline;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.profile .listing-showing {
+  display: flex;
+  border-bottom: 1px solid #bebebe;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+}
+
+.profile .listing-showing img {
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+  border-radius: 0;
+  margin: 0;
+}
+
+.profile .listing-showing .listing-showing_button {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.profile .listing-showing .listing-showing_button button {
+  margin-bottom: 1rem;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: #fafafa;
+}
+
+.profile .listing-showing .listing-showing_button .delete {
+  background-color: #e03636;
+  border-radius: 3px;
+}
+
+.profile .listing-showing .listing-showing_button .edit {
+  background-color: #39b939;
+  border-radius: 3px;
+}
+
 @media (max-width: 900px) {
   .profile h1 {
     font-size: 0.8rem;
@@ -131,5 +184,18 @@
 
   .profile form .items {
     font-size: 0.8rem;
+  }
+
+  .profile .show-listings {
+    flex-direction: column;
+  }
+
+  .profile .listing-showing {
+    width: 90%;
+  }
+
+  .profile .listing-showing img {
+    width: 4rem;
+    height: 4rem;
   }
 }
