@@ -151,6 +151,29 @@ const Profile = () => {
     }
   };
 
+  const handleListingDelete = async (listingId) => {
+    try {
+      const res = await fetch(`/api/listing/delete/${listingId}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setUserListings((prevListings) =>
+          prevListings.filter((listing) => listing._id !== listingId)
+        );
+      } else {
+        console.error("Failed to delete listing:", data.message);
+      }
+    } catch (error) {
+      console.error("Error deleting listing:", error);
+    }
+  };
+
   return (
     <div className="profile">
       <h1>Profile</h1>
