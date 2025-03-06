@@ -37,7 +37,7 @@ const listingSchema = new mongoose.Schema(
       require: true,
     },
 
-    funished: {
+    furnished: {
       type: Boolean,
       require: true,
     },
