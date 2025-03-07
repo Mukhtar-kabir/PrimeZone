@@ -10,6 +10,7 @@ import Contact from "./Pages/Contact/Contact";
 import Properties from "./Pages/Properties/Properties";
 import { PrivateRoute } from "./Components/PrivateRoute/PrivateRoute";
 import CreateListing from "./Pages/CreateListing/CreateListing";
+import UpdateListing from "./Pages/UpdateListing/UpdateListing";
 
 const App = () => {
   return (
@@ -23,6 +24,10 @@ const App = () => {
         <Route element={<PrivateRoute />}>
           <Route path="/profile" element={<Profile />} />
           <Route path="/create-listing" element={<CreateListing />} />
+          <Route
+            path="/update-listing/:listingId"
+            element={<UpdateListing />}
+          />
         </Route>
 
         <Route path="/contact" element={<Contact />} />
