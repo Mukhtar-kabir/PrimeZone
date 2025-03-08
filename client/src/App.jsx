@@ -31,7 +31,7 @@ const App = () => {
         </Route>
 
         <Route path="/contact" element={<Contact />} />
-        <Route path="/properties" element={<Properties />} />
+        <Route path="/listing/:listingId" element={<Properties />} />
       </Routes>
     </BrowserRouter>
   );
