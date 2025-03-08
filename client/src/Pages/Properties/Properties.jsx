@@ -3,8 +3,18 @@ import "../Properties/Properties.css";
 import { useParams } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper";
+import { Link } from "react-router-dom";
 import { Navigation } from "swiper/modules";
 import "swiper/css/bundle";
+import {
+  FaBath,
+  FaBed,
+  FaChair,
+  FaMapMarkedAlt,
+  FaMapMarkerAlt,
+  FaParking,
+  FaShare,
+} from "react-icons/fa";
 
 const Properties = () => {
   SwiperCore.use([Navigation]);
@@ -38,7 +48,12 @@ const Properties = () => {
   return (
     <main>
       <div className="loading">
-        {loading && <p>Loading...</p>} {error && <p>Something went wrong!</p>}
+        {loading && <p>Loading...</p>}{" "}
+        {error && (
+          <p>
+            Something went wrong! <Link to="/">Go back Home</Link>
+          </p>
+        )}
       </div>
       {listing && !loading && !error && (
         <div>
@@ -55,6 +70,57 @@ const Properties = () => {
               </SwiperSlide>
             ))}
           </Swiper>
+
+          <div className="items">
+            <p className="name">
+              {listing.name} - Naira{" "}
+              {listing.offer
+                ? listing.discountPrice.toLocaleString("NGN")
+                : listing.regularPrice.toLocaleString("NGN")}
+              {listing.type === "rent" && " / month"}
+            </p>
+            <p className="icons">
+              <FaMapMarkerAlt className="icon" />
+              {listing.address}
+            </p>
+            <div className="discounts">
+              <p className="rent">
+                {listing.type === "rent" ? "For Rent" : "For Sale"}
+              </p>
+              {listing.offer && (
+                <p className="discount">
+                  Naira {+listing.regularPrice - +listing.discountPrice} OFF
+                </p>
+              )}
+            </div>
+            <p className="desc">
+              <span>Description - </span>
+              {listing.description}
+            </p>
+
+            <ul>
+              <li className="flex items-center gap-1 whitespace-nowrap ">
+                <FaBed className="text-lg" />
+                {listing.bedrooms > 1
+                  ? `${listing.bedrooms} beds `
+                  : `${listing.bedrooms} bed `}
+              </li>
+              <li className="flex items-center gap-1 whitespace-nowrap ">
+                <FaBath className="text-lg" />
+                {listing.bathrooms > 1
+                  ? `${listing.bathrooms} baths `
+                  : `${listing.bathrooms} bath `}
+              </li>
+              <li className="flex items-center gap-1 whitespace-nowrap ">
+                <FaParking className="text-lg" />
+                {listing.parking ? "Parking spot" : "No Parking"}
+              </li>
+              <li className="flex items-center gap-1 whitespace-nowrap ">
+                <FaChair className="text-lg" />
+                {listing.furnished ? "Furnished" : "Unfurnished"}
+              </li>
+            </ul>
+          </div>
         </div>
       )}
     </main>

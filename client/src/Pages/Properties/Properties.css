@@ -11,3 +11,115 @@ main .loading {
   width: 100%;
   height: 500px; /* Ensure images have space */
 }
+
+main .items {
+  width: 80%;
+  margin: auto;
+  padding: 2rem;
+  font-family: sans-serif;
+}
+
+main .items .name {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+main .items .icons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  opacity: 0.6;
+  margin-bottom: 1.3rem;
+}
+
+main .items .icons .icon {
+  color: #0a3f0a;
+}
+
+main .items .discounts {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.3rem;
+}
+
+main .items .discounts .rent {
+  background: #9e0c0c;
+  color: #fafafa;
+  font-size: 0.8rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+main .items .discounts .discount {
+  background: #0a3f0a;
+  color: #fafafa;
+  font-size: 0.8rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+main .items .desc {
+  margin-bottom: 1.3rem;
+  line-height: 1.5;
+}
+
+main .items .desc span {
+  font-weight: 700;
+}
+
+main .items ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  color: #0c700c;
+}
+
+main .items ul li {
+  list-style: none;
+}
+
+main .items ul li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (max-width: 900px) {
+  .swiper-slide div {
+    height: 250px;
+  }
+
+  main .items {
+    width: 100%;
+  }
+
+  main .items .name {
+    font-size: 1.3rem;
+  }
+
+  main .items .icons {
+    font-size: 0.8rem;
+    gap: 0.3rem;
+  }
+
+  main .items .discounts {
+    gap: 0.5rem;
+  }
+
+  main .items .discounts .rent,
+  main .items .discounts .discount {
+    padding: 0.5rem 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  main .items .desc {
+    font-size: 0.8rem;
+  }
+
+  main .items ul {
+    gap: 0.8rem;
+  }
+}
