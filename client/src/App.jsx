@@ -11,6 +11,7 @@ import Properties from "./Pages/Properties/Properties";
 import { PrivateRoute } from "./Components/PrivateRoute/PrivateRoute";
 import CreateListing from "./Pages/CreateListing/CreateListing";
 import UpdateListing from "./Pages/UpdateListing/UpdateListing";
+import Search from "./Pages/Search/Search";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/about" element={<About />} />
+        <Route path="/search" element={<Search />} />
         <Route element={<PrivateRoute />}>
           <Route path="/profile" element={<Profile />} />
           <Route path="/create-listing" element={<CreateListing />} />
