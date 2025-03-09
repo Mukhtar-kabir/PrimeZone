@@ -2,6 +2,7 @@ import React from "react";
 import "../Search/Search.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import ListingItem from "../../Components/ListingItem/ListingItem";
 
 function Search() {
   const navigate = useNavigate();
@@ -224,30 +225,23 @@ function Search() {
 
       <div className="listing">
         <h1>Listing results:</h1>
-        <div className="p-7 flex flex-wrap gap-4">
+        <div className="listing-items">
           {!loading && listings.length === 0 && (
             <p className="text-xl text-slate-700">No listing found!</p>
           )}
-          {loading && (
-            <p className="text-xl text-slate-700 text-center w-full">
-              Loading...
-            </p>
-          )}
+          {loading && <p className="loading">Loading...</p>}
 
-          {/* {!loading &&
+          {!loading &&
             listings &&
             listings.map((listing) => (
               <ListingItem key={listing._id} listing={listing} />
             ))}
 
           {showMore && (
-            <button
-              onClick={onShowMoreClick}
-              className="text-green-700 hover:underline p-7 text-center w-full"
-            >
+            <button onClick={onShowMoreClick} className="showMore">
               Show more
             </button>
-          )} */}
+          )}
         </div>
       </div>
     </div>
