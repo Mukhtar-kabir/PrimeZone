@@ -12,17 +12,18 @@ header .items {
   margin: auto;
 }
 
-header .center {
+header .center form {
   background: #fafafa;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  width: 25%;
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 5px;
 }
 
 header .center input {
   border: none;
-  padding: 0.5rem;
-  border-radius: 5px;
   background: none;
   outline: none;
   width: 90%;
