@@ -64,7 +64,7 @@ const Header = () => {
             <li>About</li>
           </Link>
           <Link
-            to="/properties"
+            to="/property-page"
             className="link"
             onClick={() => setMenuOpen(false)}
           >

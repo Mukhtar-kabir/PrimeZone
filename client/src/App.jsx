@@ -12,6 +12,7 @@ import { PrivateRoute } from "./Components/PrivateRoute/PrivateRoute";
 import CreateListing from "./Pages/CreateListing/CreateListing";
 import UpdateListing from "./Pages/UpdateListing/UpdateListing";
 import Search from "./Pages/Search/Search";
+import PropertyPage from "./Pages/PropertyPage/PropertyPage";
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
 
         <Route path="/contact" element={<Contact />} />
         <Route path="/listing/:listingId" element={<Properties />} />
+        <Route path="/property-page" element={<PropertyPage />} />
       </Routes>
     </BrowserRouter>
   );
