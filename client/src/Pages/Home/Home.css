@@ -12,7 +12,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  padding: 70px 0;
+  padding: 90px 0;
 }
 
 .hero .banner {
@@ -56,11 +56,73 @@
   }
 }
 
+/* Achievements */
+
+.achievements {
+  padding: 100px 0;
+}
+
+.achievements .achievement-container {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.achievements .achievement-container .achievement p {
+  font-size: 1.5rem;
+}
+
+.achievements .achievement-container .icon {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+}
+
+.achievements .achievement-container .home {
+  color: #bb831b;
+}
+
+.achievements .achievement-container .hand {
+  color: #5b5beb;
+}
+
+.achievements .achievement-container .build {
+  color: brown;
+}
+
+@media (max-width: 900px) {
+  .achievements {
+    padding: 60px 0;
+  }
+
+  .achievements .achievement-container {
+    flex-direction: column;
+  }
+
+  .achievements .achievement-container .achievement {
+    margin-bottom: 3rem;
+  }
+
+  .achievements .achievement-container .achievement p {
+    font-size: 0.8rem;
+  }
+
+  .achievements .achievement-container .icon {
+    font-size: 2rem;
+  }
+}
+
+/* Swiper */
+
 .swiper img {
   width: 100%;
   height: 500px;
   object-fit: cover;
 }
+
+/* Properties */
 
 .properties {
   line-height: 2;
@@ -94,5 +156,67 @@
   .properties .properties-content .items .rent,
   .properties .properties-content .items .sale {
     grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* Why Choose Us */
+
+.why-choose-us {
+  padding: 90px 0;
+  background: #04042c;
+  color: #fafafa;
+}
+
+.why-choose-us .why-choose-us_container {
+  width: 80%;
+  margin: auto;
+}
+
+.why-choose-us .why-choose-us_container h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 5rem;
+}
+
+.why-choose-us .why-choose-us_container .contents {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  text-align: center;
+}
+
+.why-choose-us .why-choose-us_container .contents .content .icon {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+}
+
+.why-choose-us .why-choose-us_container .contents .content p {
+  margin-bottom: 1rem;
+}
+
+.why-choose-us .why-choose-us_container .contents .content span {
+  line-height: 1.8;
+  opacity: 0.8;
+}
+
+@media (max-width: 900px) {
+  .why-choose-us .why-choose-us_container h2 {
+    font-size: 1.5rem;
+  }
+
+  .why-choose-us .why-choose-us_container .contents {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .why-choose-us .why-choose-us_container .contents .content {
+    margin-bottom: 2rem;
+  }
+
+  .why-choose-us .why-choose-us_container .contents .content .icon {
+    font-size: 2rem;
+  }
+
+  .why-choose-us .why-choose-us_container .contents .content span {
+    font-size: 0.8rem;
   }
 }

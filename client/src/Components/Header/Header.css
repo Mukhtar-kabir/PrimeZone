@@ -1,6 +1,10 @@
 header {
   background: #04042c;
   padding: 0.5rem;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  border-bottom: 1px solid #474747;
 }
 
 header .items {
@@ -87,12 +91,14 @@ header .items .right .profile img {
     display: none;
     flex-direction: column;
     position: absolute;
+    z-index: 999;
     top: 100%;
     right: 0;
     background: #04042c;
     width: 100%;
     text-align: center;
     padding: 1rem 0;
+    box-shadow: 1px 1px 1px 1px #fafafa;
   }
 
   header .items .right.open {

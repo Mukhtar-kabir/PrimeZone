@@ -6,6 +6,13 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import SwiperCore from "swiper";
 import "swiper/css/bundle";
 import ListingItem from "../../Components/ListingItem/ListingItem";
+import { IoIosHome } from "react-icons/io";
+import { FaHandshake } from "react-icons/fa";
+import { FaRegBuilding } from "react-icons/fa";
+import { FaAward } from "react-icons/fa";
+import { FaSackDollar } from "react-icons/fa6";
+import { FaLocationDot } from "react-icons/fa6";
+import { IoCallSharp } from "react-icons/io5";
 
 const Home = () => {
   const [offerListings, setOfferListings] = useState([]);
@@ -58,6 +65,25 @@ const Home = () => {
         </div>
       </div>
 
+      <div className="achievements">
+        <div className="achievement-container">
+          <div className="achievement">
+            <IoIosHome className="icon home" />
+            <p>100+ Properties Sold</p>
+          </div>
+
+          <div className="achievement">
+            <FaHandshake className="icon hand" />
+            <p>26 Partner Developers</p>
+          </div>
+
+          <div className="achievement">
+            <FaRegBuilding className="icon build" />
+            <p>36 Properties Available</p>
+          </div>
+        </div>
+      </div>
+
       <div className="swiper">
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
@@ -78,23 +104,6 @@ const Home = () => {
           ))}
         </Swiper>
       </div>
-
-      {/* <Swiper navigation>
-        {offerListings &&
-          offerListings.length > 0 &&
-          offerListings.map((listing) => (
-            <SwiperSlide>
-              <div
-                style={{
-                  background: `url(${listing.imageUrls[0]}) center no-repeat`,
-                  backgroundSize: "cover",
-                }}
-                className="h-[500px]"
-                key={listing._id}
-              ></div>
-            </SwiperSlide>
-          ))}
-      </Swiper> */}
 
       <div className="properties">
         <div className="properties-content max-w-6xl mx-auto p-3 flex flex-col gap-8 my-10">
@@ -161,7 +170,49 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="achievement"></div>
+      <div className="why-choose-us">
+        <div className="why-choose-us_container">
+          <h2>Why Choose Us</h2>
+          <div className="contents">
+            <div className="content">
+              <FaAward className="icon" />
+              <p>Trusted Real Estate Experts</p>
+              <span>
+                Our team of seasoned real estate professionals ensures reliable
+                guidance and expert advice for all your property needs.
+              </span>
+            </div>
+
+            <div className="content">
+              <FaSackDollar className="icon" />
+              <p>Flexible Payment Options</p>
+              <span>
+                We offer a variety of payment plans tailored to suit your budget
+                and financial preferences.
+              </span>
+            </div>
+
+            <div className="content">
+              <FaLocationDot className="icon" />
+              <p>Prime Locations</p>
+              <span>
+                Our properties are strategically situated in sought-after areas,
+                offering convenience and high investment value.
+              </span>
+            </div>
+
+            <div className="content">
+              <IoCallSharp className="icon" />
+              <p>24/7 Customer Support</p>
+              <span>
+                Our dedicated support team is available around the clock to
+                assist you with any inquiries or concerns.
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <footer></footer>
     </section>
   );
