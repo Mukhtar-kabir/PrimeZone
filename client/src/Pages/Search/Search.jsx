@@ -226,9 +226,7 @@ function Search() {
       <div className="listing">
         <h1>Listing results:</h1>
         <div className="listing-items">
-          {!loading && listings.length === 0 && (
-            <p className="text-xl text-slate-700">No listing found!</p>
-          )}
+          {!loading && listings.length === 0 && <p>No listing found!</p>}
           {loading && <p className="loading">Loading...</p>}
 
           {!loading &&

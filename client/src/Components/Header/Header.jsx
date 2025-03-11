@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "../Header/Header.css";
 import { Link, useNavigate } from "react-router-dom";
-import { FaSearch } from "react-icons/fa";
+import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
 import { useSelector } from "react-redux";
 
 const Header = () => {
   const { currentUser } = useSelector((state) => state.user);
   const [searchTerm, setSearchTerm] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -29,7 +30,9 @@ const Header = () => {
     <header>
       <div className="items">
         <div className="left">
-          <img src="Images/logo.jpeg" alt="LOGO" />
+          <Link to={"/"}>
+            <img src="Images/logo.jpeg" alt="LOGO" />
+          </Link>
         </div>
 
         <div className="center">
@@ -46,24 +49,39 @@ const Header = () => {
           </form>
         </div>
 
-        <div className="right">
-          <Link to="/" className="link">
+        <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </div>
+
+        <nav
+          className={`right ${menuOpen ? "open" : ""}`}
+          style={{ transition: "all 0.3s ease-in-out" }}
+        >
+          <Link to="/" className="link" onClick={() => setMenuOpen(false)}>
             <li>Home</li>
           </Link>
-
-          <Link to="/about" className="link">
+          <Link to="/about" className="link" onClick={() => setMenuOpen(false)}>
             <li>About</li>
           </Link>
-
-          <Link to="/properties" className="link">
+          <Link
+            to="/properties"
+            className="link"
+            onClick={() => setMenuOpen(false)}
+          >
             <li>Properties</li>
           </Link>
-
-          <Link to="/contact" className="link">
+          <Link
+            to="/contact"
+            className="link"
+            onClick={() => setMenuOpen(false)}
+          >
             <li>Contact</li>
           </Link>
-
-          <Link to="/profile" className="link profile">
+          <Link
+            to="/profile"
+            className="link profile"
+            onClick={() => setMenuOpen(false)}
+          >
             {currentUser ? (
               <img
                 src={
@@ -71,23 +89,13 @@ const Header = () => {
                   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1hIiQRnLbjQWO-iqNOdhuDSzuieyWRGr8WX9WIf4WZ5g7-opy4_xoccI&s"
                 }
                 alt="profile"
-                style={{
-                  cursor: "pointer",
-                  objectFit: "cover",
-                  height: "3rem",
-                  width: "3rem",
-                  marginTop: "1rem",
-                }}
+                className="profile-img"
               />
             ) : (
-              <li>Client Potal</li>
+              <li>Client Portal</li>
             )}
           </Link>
-
-          {/* <Link to="/sign-up" className="link">
-            <li>Client Potal</li>
-          </Link> */}
-        </div>
+        </nav>
       </div>
     </header>
   );

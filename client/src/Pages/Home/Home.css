@@ -2,4 +2,97 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.hero {
+  /* background-image: url("/Images/3.jpeg"); */
+  background: linear-gradient(rgba(4, 9, 30, 0.6), rgba(4, 9, 30, 0.6)),
+    url("/Images/3.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 70px 0;
+}
+
+.hero .banner {
+  width: 60%;
+  padding: 3rem 8rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #fafafa;
+}
+
+.hero p {
+  margin-bottom: 1rem;
+  color: #fafafa;
+}
+
+.hero button {
+  background: #04042c;
+  color: #fafafa;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hero button:hover {
+  background: #1e1e50;
+}
+
+@media (max-width: 900px) {
+  .hero .banner {
+    width: 100%;
+    padding: 1rem 2rem;
+  }
+
+  .hero h1 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.swiper img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+.properties {
+  line-height: 2;
+}
+
+.properties .properties-content {
+  width: 80%;
+  margin: auto;
+  margin-top: 2rem;
+}
+
+.properties .properties-content .items {
+  margin-bottom: 1rem;
+}
+
+.properties .properties-content .items .offer,
+.properties .properties-content .items .rent,
+.properties .properties-content .items .sale {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 5rem;
+}
+
+.properties .properties-content .items .item {
+  gap: 1rem;
+}
+
+@media (max-width: 900px) {
+  .properties .properties-content .items .offer,
+  .properties .properties-content .items .rent,
+  .properties .properties-content .items .sale {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

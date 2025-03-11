@@ -10,6 +10,7 @@ header .items {
   font-family: sans-serif;
   width: 80%;
   margin: auto;
+  position: relative;
 }
 
 header .center form {
@@ -39,6 +40,13 @@ header .items .left img {
   width: 5rem;
 }
 
+header .hamburger {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+}
+
 header .items .right {
   display: flex;
   align-items: center;
@@ -58,6 +66,40 @@ header .items .right .link:hover {
 header .items .right .profile img {
   border-radius: 5rem;
   width: 3rem;
-  height: 5rem;
+  height: 3rem;
   object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  header .items {
+    width: 90%;
+  }
+
+  header .items .left img {
+    width: 3rem;
+  }
+
+  header .hamburger {
+    display: block;
+  }
+
+  header .items .right {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #04042c;
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+  }
+
+  header .items .right.open {
+    display: flex;
+  }
+
+  header .items .right .link {
+    padding: 1rem;
+  }
 }
