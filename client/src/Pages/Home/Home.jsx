@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import "../Home/Home.css";
 import { Link, useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -19,11 +20,74 @@ const Home = () => {
   const [saleListings, setSaleListings] = useState([]);
   const [rentListings, setRentListings] = useState([]);
 
+  // Hardcoded Listings
+  const manualListings = [
+    {
+      _id: "manual-1",
+      name: "Modern Apartment",
+      address: "Lagos, Nigeria",
+      description: "A beautiful apartment in a prime location.",
+      regularPrice: 2000000,
+      discountPrice: 1800000,
+      offer: true,
+      type: "rent",
+      bedrooms: 3,
+      bathrooms: 2,
+      userRef: "12345",
+      imageUrls: ["/Images/1.jpeg"],
+    },
+    {
+      _id: "manual-2",
+      name: "Luxury Villa",
+      address: "Abuja, Nigeria",
+      description: "A luxurious villa with a stunning view.",
+      regularPrice: 50000000,
+      discountPrice: 48000000,
+      offer: false,
+      type: "sale",
+      bedrooms: 5,
+      bathrooms: 4,
+      userRef: "12346",
+      imageUrls: ["/Images/2.jpeg"],
+    },
+
+    {
+      _id: "manual-3",
+      name: "New Villa",
+      address: "Abuja, Maitama, Nigeria",
+      description: "A luxurious villa with a stunning view.",
+      regularPrice: "800,000,000",
+      discountPrice: 48000000,
+      offer: false,
+      type: "rent",
+      bedrooms: 7,
+      bathrooms: 4,
+      userRef: "12347",
+      imageUrls: ["/Images/3.jpeg"],
+    },
+
+    {
+      _id: "manual-4",
+      name: "Luxury",
+      address: "Ibadan, Nigeria",
+      description: "A luxurious villa with a stunning view.",
+      regularPrice: "600,000,000",
+      discountPrice: 48000000,
+      offer: false,
+      type: "rent",
+      bedrooms: 6,
+      bathrooms: 4,
+      userRef: "12348",
+      imageUrls: ["/Images/4.jpeg"],
+    },
+  ];
+
   useEffect(() => {
     const fetchOfferListings = async () => {
       try {
         const res = await fetch("/api/listing/get?offer=true&limit=4");
         const data = await res.json();
+        // setOfferListings([...manualListings, ...data]);
         setOfferListings(data);
         fetchRentListings();
       } catch (error) {
@@ -50,7 +114,10 @@ const Home = () => {
         log(error);
       }
     };
+    // fetchOfferListings();
     fetchOfferListings();
+    fetchRentListings();
+    fetchSaleListings();
   }, []);
 
   return (
@@ -106,12 +173,24 @@ const Home = () => {
       </div>
 
       <div className="properties">
-        <div className="properties-content max-w-6xl mx-auto p-3 flex flex-col gap-8 my-10">
+        <div className="properties-content">
+          <div className="defaults">
+            <div className="manual-listings">
+              <h2>Featured Properties</h2>
+              <div className="listings-grid">
+                {manualListings.map((listing) => (
+                  <ListingItem listing={listing} key={listing._id} />
+                ))}
+              </div>
+            </div>
+          </div>
           {offerListings && offerListings.length > 0 && (
             <div className="items">
               <div className="item">
                 <h2>Recent offers</h2>
-                <Link to={"/search?offer=true"}>Show more offers</Link>
+                <Link className="link" to={"/search?offer=true"}>
+                  Show more offers
+                </Link>
               </div>
               <div className="offer">
                 {offerListings.map((listing) => (
@@ -126,10 +205,7 @@ const Home = () => {
                 <h2 className="text-2xl font-semibold text-slate-600">
                   Recent places for rent
                 </h2>
-                <Link
-                  className="text-sm text-blue-800 hover:underline"
-                  to={"/search?type=rent"}
-                >
+                <Link className="link" to={"/search?type=rent"}>
                   Show more places for rent
                 </Link>
               </div>
@@ -146,10 +222,7 @@ const Home = () => {
                 <h2 className="text-2xl font-semibold text-slate-600">
                   Recent places for sale
                 </h2>
-                <Link
-                  className="text-sm text-blue-800 hover:underline"
-                  to={"/search?type=sale"}
-                >
+                <Link className="link" to={"/search?type=sale"}>
                   Show more places for sale
                 </Link>
               </div>

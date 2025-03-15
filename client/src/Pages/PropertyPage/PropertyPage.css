@@ -1,4 +1,4 @@
-.properties {
+/* .properties {
   padding: 100px 0;
 }
 
@@ -20,5 +20,36 @@
   .properties .properties-content .items .rent,
   .properties .properties-content .items .sale {
     grid-template-columns: repeat(1, 1fr);
+  }
+} */
+
+.properties {
+  padding: 100px 0;
+}
+
+.properties h3 {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 1.5rem;
+}
+
+.properties .properties-Page {
+  width: 80%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 5rem;
+}
+
+@media (max-width: 900px) {
+  .properties .properties-Page {
+    width: 90%;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .properties h3 {
+    width: 90%;
+    font-size: 1.3rem;
   }
 }

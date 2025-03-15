@@ -13,6 +13,7 @@ import CreateListing from "./Pages/CreateListing/CreateListing";
 import UpdateListing from "./Pages/UpdateListing/UpdateListing";
 import Search from "./Pages/Search/Search";
 import PropertyPage from "./Pages/PropertyPage/PropertyPage";
+import ManualListingsDetails from "./Pages/ManualListingsDetails/ManualListingsDetails";
 
 const App = () => {
   return (
@@ -32,9 +33,13 @@ const App = () => {
             element={<UpdateListing />}
           />
         </Route>
-
         <Route path="/contact" element={<Contact />} />
         <Route path="/listing/:listingId" element={<Properties />} />
+        <Route
+          path="/manual-listing/:id"
+          element={<ManualListingsDetails />}
+        />{" "}
+        {/* New route */}
         <Route path="/property-page" element={<PropertyPage />} />
       </Routes>
     </BrowserRouter>

@@ -66,6 +66,7 @@ const listingSchema = new mongoose.Schema(
       type: String,
       require: true,
     },
+    uuid: { type: String, unique: true },
   },
   { timestamps: true }
 );

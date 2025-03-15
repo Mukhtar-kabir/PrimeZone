@@ -1,0 +1,54 @@
+.landloard {
+  margin-top: 1rem;
+}
+
+.landloard .landlord-name {
+  margin-bottom: 0.5rem;
+}
+
+.landloard .landlord-name span {
+  font-weight: 700;
+}
+
+.landloard .message {
+  display: flex;
+  flex-direction: column;
+}
+
+.landloard .message textarea {
+  width: 80%;
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.landloard .message .button {
+  background: #4f448b;
+  color: #fafafa;
+  border: none;
+  padding: 1rem;
+  text-align: center;
+  width: 80%;
+  border-radius: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.landloard .message .button:hover {
+  background: #5f5594;
+}
+
+@media (max-width: 900px) {
+  .landloard .message textarea {
+    padding: 0.5rem;
+    width: 100%;
+  }
+
+  .landloard .message .button {
+    font-size: 0.8rem;
+    width: 100%;
+  }
+}

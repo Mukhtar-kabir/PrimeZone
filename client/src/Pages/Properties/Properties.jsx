@@ -29,6 +29,11 @@ const Properties = () => {
 
   useEffect(() => {
     const fetchListing = async () => {
+      if (!params.listingId) {
+        setError(true);
+        return;
+      }
+
       try {
         setLoading(true);
         const res = await fetch(`/api/listing/get/${params.listingId}`);

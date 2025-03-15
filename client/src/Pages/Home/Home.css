@@ -128,6 +128,54 @@
   line-height: 2;
 }
 
+.properties .default {
+  background: #fafafa;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.properties .default img {
+  width: 20rem;
+  height: 20rem;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.properties .default img:hover {
+  transform: scale(0.9);
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+.properties .default .location {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.properties .default .icon {
+  color: green;
+}
+
+.properties .default .price {
+  color: green;
+  font-weight: 500;
+}
+
+.properties .default .desc {
+  font-size: 0.8rem;
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.properties .default .bed-bath {
+  display: flex;
+  gap: 1rem;
+  opacity: 0.8;
+}
+
 .properties .properties-content {
   width: 80%;
   margin: auto;
@@ -140,7 +188,8 @@
 
 .properties .properties-content .items .offer,
 .properties .properties-content .items .rent,
-.properties .properties-content .items .sale {
+.properties .properties-content .items .sale,
+.properties .properties-content .defaults .manual-listings .listings-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
@@ -151,11 +200,25 @@
   gap: 1rem;
 }
 
+.properties .properties-content .items .item .link {
+  text-decoration: none;
+  color: gray;
+}
+
 @media (max-width: 900px) {
   .properties .properties-content .items .offer,
   .properties .properties-content .items .rent,
-  .properties .properties-content .items .sale {
+  .properties .properties-content .items .sale,
+  .properties .properties-content .defaults .manual-listings .listings-grid {
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  .properties .properties-content {
+    width: 90%;
+  }
+
+  .properties .properties-content .items .item h2 {
+    font-size: 1rem;
   }
 }
 

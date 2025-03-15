@@ -4,9 +4,18 @@ import { Link } from "react-router-dom";
 import { MdLocationOn } from "react-icons/md";
 
 function ListingItem({ listing }) {
+  const isManualListing = listing._id.startsWith("manual-");
+
   return (
     <div className="listing-item">
-      <Link to={`/listing/${listing._id}`} className="link">
+      <Link
+        to={
+          isManualListing
+            ? `/manual-listing/${listing._id}`
+            : `/listing/${listing._id}`
+        }
+        className="link"
+      >
         <img
           src={
             listing.imageUrls[0] ||
@@ -22,10 +31,10 @@ function ListingItem({ listing }) {
           <p className="name">{listing.name}</p>
           <p className="desc">{listing.description}</p>
           <p className="price">
-            $
+            Naira{" "}
             {listing.offer
-              ? listing.discountPrice.toLocaleString("en-US")
-              : listing.regularPrice.toLocaleString("en-US")}
+              ? listing.discountPrice.toLocaleString("Naira")
+              : listing.regularPrice.toLocaleString("Naira")}
             {listing.type === "rent" && " / month"}
           </p>
           <div className="bed-bath">
