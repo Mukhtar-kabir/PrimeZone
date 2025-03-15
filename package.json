@@ -26,5 +26,8 @@
     "multer-storage-cloudinary": "^4.0.0",
     "nodemon": "^3.1.9",
     "redux-persist": "^6.0.0"
+  },
+  "devDependencies": {
+    "rollup": "^4.35.0"
   }
 }
