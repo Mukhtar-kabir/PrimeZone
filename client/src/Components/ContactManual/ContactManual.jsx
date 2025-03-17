@@ -13,7 +13,7 @@ function ContactManual({ listing }) {
 
   // Construct the WhatsApp link
   const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-    `Hello Muhseen Ibrahim (Estate Expert), I'm interested in ${listing.name}. ${message}`
+    `Hello Muhseen Ibrahim (Estate Expert), I am reaching out through your website regarding ${listing.name}. ${message}`
   )}`;
 
   return (
