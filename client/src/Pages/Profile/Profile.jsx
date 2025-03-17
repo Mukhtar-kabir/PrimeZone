@@ -129,50 +129,50 @@ const Profile = () => {
     }
   };
 
-  const handleShowListings = async () => {
-    try {
-      setShowListingsError(false);
-      const res = await fetch(`/api/user/listings/${currentUser._id}`);
-      const data = await res.json();
+  // const handleShowListings = async () => {
+  //   try {
+  //     setShowListingsError(false);
+  //     const res = await fetch(`/api/user/listings/${currentUser._id}`);
+  //     const data = await res.json();
 
-      if (!data.success) {
-        setShowListingsError(true);
-        return;
-      }
+  //     if (!data.success) {
+  //       setShowListingsError(true);
+  //       return;
+  //     }
 
-      // if (data.success === false) {
-      //   setShowListingsError(true);
-      //   return;
-      // }
+  //     // if (data.success === false) {
+  //     //   setShowListingsError(true);
+  //     //   return;
+  //     // }
 
-      setUserListings(data.listings);
-    } catch (error) {
-      setShowListingsError(true);
-    }
-  };
+  //     setUserListings(data.listings);
+  //   } catch (error) {
+  //     setShowListingsError(true);
+  //   }
+  // };
 
-  const handleListingDelete = async (listingId) => {
-    try {
-      const res = await fetch(`/api/listing/delete/${listingId}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+  // const handleListingDelete = async (listingId) => {
+  //   try {
+  //     const res = await fetch(`/api/listing/delete/${listingId}`, {
+  //       method: "DELETE",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //     });
 
-      const data = await res.json();
+  //     const data = await res.json();
 
-      if (res.ok) {
-        setUserListings((prevListings) =>
-          prevListings.filter((listing) => listing._id !== listingId)
-        );
-      } else {
-        console.error("Failed to delete listing:", data.message);
-      }
-    } catch (error) {
-      console.error("Error deleting listing:", error);
-    }
-  };
+  //     if (res.ok) {
+  //       setUserListings((prevListings) =>
+  //         prevListings.filter((listing) => listing._id !== listingId)
+  //       );
+  //     } else {
+  //       console.error("Failed to delete listing:", data.message);
+  //     }
+  //   } catch (error) {
+  //     console.error("Error deleting listing:", error);
+  //   }
+  // };
 
   return (
     <div className="profile">
