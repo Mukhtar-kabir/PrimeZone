@@ -80,7 +80,7 @@ const SignUp = () => {
         </Link>
       </div>
 
-      {error && <p>User already exist. Try to Sign In</p>}
+      {error && <p className="parag">User already exist. Try to Sign In</p>}
     </div>
   );
 };

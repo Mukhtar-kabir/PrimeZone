@@ -14,11 +14,45 @@ import { FaAward } from "react-icons/fa";
 import { FaSackDollar } from "react-icons/fa6";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoCallSharp } from "react-icons/io5";
+import { FaTwitter } from "react-icons/fa";
+import { FaInstagramSquare } from "react-icons/fa";
+import { FaWhatsappSquare } from "react-icons/fa";
 
 const Home = () => {
   const [offerListings, setOfferListings] = useState([]);
   const [saleListings, setSaleListings] = useState([]);
   const [rentListings, setRentListings] = useState([]);
+
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await fetch("/api/inquiry/send", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+    const data = await response.json();
+    alert(data.message);
+
+    if (response.ok) {
+      setFormData({
+        name: "",
+        phone: "",
+        email: "",
+        message: "",
+      });
+    }
+  };
 
   // Hardcoded Listings
   const manualListings = [
@@ -79,6 +113,35 @@ const Home = () => {
       bathrooms: 4,
       userRef: "12348",
       imageUrls: ["/Images/4.jpeg"],
+    },
+    {
+      _id: "manual-5",
+      name: "Luxury",
+      address: "Ibadan, Nigeria",
+      description: "A luxurious villa with a stunning view.",
+      regularPrice: "600,000,000",
+      discountPrice: 48000000,
+      offer: false,
+      type: "rent",
+      bedrooms: 6,
+      bathrooms: 4,
+      userRef: "12349",
+      imageUrls: ["/Images/5.jpeg"],
+    },
+
+    {
+      _id: "manual-6",
+      name: "Luxury",
+      address: "Ibadan, Nigeria",
+      description: "A luxurious villa with a stunning view.",
+      regularPrice: "600,000,000",
+      discountPrice: 48000000,
+      offer: false,
+      type: "rent",
+      bedrooms: 6,
+      bathrooms: 4,
+      userRef: "12350",
+      imageUrls: ["/Images/6.jpeg"],
     },
   ];
 
@@ -184,7 +247,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          {offerListings && offerListings.length > 0 && (
+          {/* {offerListings && offerListings.length > 0 && (
             <div className="items">
               <div className="item">
                 <h2>Recent offers</h2>
@@ -232,7 +295,7 @@ const Home = () => {
                 ))}
               </div>
             </div>
-          )}
+          )} */}
         </div>
       </div>
 
@@ -279,7 +342,102 @@ const Home = () => {
         </div>
       </div>
 
-      <footer></footer>
+      <div className="inquiry">
+        <div className="inquiry-form">
+          <h2>Make an Inquiry?</h2>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              const phoneNumber = "2347063447840";
+              const message = `Assalamu alaikum, my name is ${formData.name}. I am reaching out through your website regarding real estate listings.
+
+              Here are my contact details:  
+              📞 Phone: ${formData.phone}  
+              📧 Email: ${formData.email}  
+
+              Message: ${formData.message}  
+
+              Looking forward to your response. Thank you!`;
+              const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+                message
+              )}`;
+              window.open(whatsappLink, "_blank");
+            }}
+          >
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              required
+              value={formData.name}
+              onChange={handleChange}
+            />
+            <input
+              type="number"
+              name="phone"
+              placeholder="Phone Number"
+              required
+              value={formData.phone}
+              onChange={handleChange}
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              required
+              value={formData.email}
+              onChange={handleChange}
+            />
+            {/* <textarea
+              name="message"
+              placeholder="Message"
+              required
+              value={formData.message}
+              onChange={handleChange}
+            ></textarea> */}
+            <button type="submit">Send via WhatsApp</button>
+          </form>
+        </div>
+      </div>
+
+      <footer>
+        <div className="footer-container">
+          <div className="left">
+            <img src="/Images/logo.jpeg" alt="" />
+            <p>
+              PrimeZone Estates LTD is a trusted real estate company committed
+              to providing premium properties in prime locations. We offer
+              flexible payment options and 24/7 customer support, ensuring a
+              seamless experience for our clients.
+            </p>
+            <h4>Address:</h4>
+            <p>456 Skyline Avenue, Metroville, FAKE456</p>
+          </div>
+
+          <div className="right">
+            <div className="links">
+              <Link to="" className="link">
+                <FaTwitter />
+              </Link>
+
+              <Link to="" className="link">
+                <FaInstagramSquare />
+              </Link>
+
+              <Link
+                to="https://api.whatsapp.com/send/?phone=%2B2347063447840&text&type=phone_number&app_absent=0"
+                className="link"
+              >
+                <FaWhatsappSquare />
+              </Link>
+            </div>
+
+            <Link to="" className="terms">
+              <h4>Terms & Privacy Policy</h4>
+            </Link>
+          </div>
+        </div>
+      </footer>
     </section>
   );
 };

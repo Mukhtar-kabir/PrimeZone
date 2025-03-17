@@ -9,10 +9,17 @@ function ContactManual({ listing }) {
     setMessage(e.target.value);
   };
 
+  const phoneNumber = "2347063447840";
+
+  // Construct the WhatsApp link
+  const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+    `Hello Muhseen Ibrahim (Estate Expert), I'm interested in ${listing.name}. ${message}`
+  )}`;
+
   return (
     <div className="landloard">
       <p className="landlord-name">
-        Contact <span className="">Mukhtar Kabir</span> for{" "}
+        Contact <span className="">Muhseen Ibrahim (Estate Expert)</span> for{" "}
         <span className="">{listing.name}</span>
       </p>
       <div className="message">
@@ -25,12 +32,14 @@ function ContactManual({ listing }) {
           placeholder="Enter your message here..."
         ></textarea>
 
-        <Link
-          to={`mailto:mukhtarkabirmuhammad32@gmail.com?subject=Regarding ${listing.name}&body=${message}`}
+        <a
+          href={whatsappLink}
+          target="_blank"
+          rel="noopener noreferrer"
           className="button"
         >
-          Send Message
-        </Link>
+          Send Message on WhatsApp
+        </a>
       </div>
     </div>
   );

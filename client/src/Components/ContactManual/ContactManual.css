@@ -21,6 +21,7 @@
   border: none;
   border-radius: 10px;
   margin-bottom: 1rem;
+  outline: none;
 }
 
 .landloard .message .button {

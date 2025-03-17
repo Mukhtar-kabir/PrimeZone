@@ -235,10 +235,10 @@ const Profile = () => {
       <p className="success">
         {updateSuccess ? "User is updated successfully!" : ""}
       </p>
-      <button onClick={handleShowListings} className="show-listings">
+      {/* <button onClick={handleShowListings} className="show-listings">
         Show Listings
       </button>
-      <p>{showListingsError ? "Error showing listings" : ""}</p>
+      <p>{showListingsError ? "Error showing listings" : ""}</p> */}
 
       {userListings && userListings.length > 0 && (
         <div className="">

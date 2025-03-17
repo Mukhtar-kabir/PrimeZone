@@ -9,6 +9,10 @@ body {
   margin-bottom: 2rem;
 }
 
+.signin {
+  padding: 100px 0;
+}
+
 .signin form {
   display: flex;
   flex-direction: column;

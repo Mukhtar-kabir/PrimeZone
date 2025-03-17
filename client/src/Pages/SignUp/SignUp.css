@@ -2,6 +2,10 @@ body {
   background: #e6e6e6;
 }
 
+.signup {
+  padding: 100px 0;
+}
+
 .signup h1 {
   text-align: center;
   font-family: sans-serif;
@@ -61,10 +65,16 @@ body {
   justify-content: center;
   gap: 1rem;
   font-family: sans-serif;
+  margin-bottom: 1rem;
 }
 
 .signup .haveAnAccount .link {
   text-decoration: none;
+}
+
+.signup .parag {
+  text-align: center;
+  color: #c92828;
 }
 
 @media (max-width: 900px) {

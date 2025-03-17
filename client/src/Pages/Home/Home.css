@@ -283,3 +283,128 @@
     font-size: 0.8rem;
   }
 }
+
+/* Inquiry */
+
+.inquiry {
+  padding: 100px 0;
+}
+
+.inquiry .inquiry-form {
+  width: 80%;
+  margin: auto;
+}
+
+.inquiry .inquiry-form h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.inquiry .inquiry-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.inquiry .inquiry-form form input,
+.inquiry .inquiry-form form textarea {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-bottom: 1rem;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 10px;
+  outline: none;
+}
+
+.inquiry .inquiry-form form button {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 10px;
+  width: 50%;
+  background: #04042c;
+  color: #fafafa;
+  cursor: pointer;
+}
+
+.inquiry .inquiry-form form button:hover {
+  background: #1e1e50;
+}
+
+@media (max-width: 900px) {
+  .inquiry .inquiry-form {
+    width: 90%;
+  }
+
+  .inquiry .inquiry-form h2 {
+    font-size: 1.2rem;
+  }
+
+  .inquiry .inquiry-form form input,
+  .inquiry .inquiry-form form textarea,
+  .inquiry .inquiry-form form button {
+    width: 100%;
+  }
+}
+
+/* Footer */
+
+footer {
+  background: #04042c;
+  color: #fafafa;
+  padding: 100px 0;
+}
+
+footer .footer-container {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+footer .footer-container .left {
+  width: 50%;
+  line-height: 1.8;
+}
+
+footer .footer-container .left img {
+  width: 3rem;
+}
+
+footer .footer-container .left p {
+  margin-bottom: 2rem;
+  opacity: 0.6;
+}
+
+footer .footer-container .right .links {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+footer .footer-container .right .links .link {
+  color: #fafafa;
+}
+
+footer .footer-container .right .links .link:hover,
+footer .footer-container .right .terms:hover {
+  opacity: 0.6;
+}
+
+footer .footer-container .right .terms {
+  text-decoration: none;
+  color: #fafafa;
+}
+
+@media (max-width: 900px) {
+  footer .footer-container {
+    width: 90%;
+    flex-direction: column;
+  }
+
+  footer .footer-container .left {
+    width: 100%;
+  }
+}
