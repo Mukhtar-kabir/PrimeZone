@@ -30,7 +30,7 @@ function ManualListingsDetails() {
       <div className="listings">
         <div className="name-price">
           <h4>{listing.name}</h4>
-          <h4>Price: Naira {listing.regularPrice}</h4>
+          <h4>- Naira {listing.regularPrice}</h4>
         </div>
 
         <div className="address">

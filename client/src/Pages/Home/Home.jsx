@@ -145,43 +145,43 @@ const Home = () => {
     },
   ];
 
-  useEffect(() => {
-    const fetchOfferListings = async () => {
-      try {
-        const res = await fetch("/api/listing/get?offer=true&limit=4");
-        const data = await res.json();
-        // setOfferListings([...manualListings, ...data]);
-        setOfferListings(data);
-        fetchRentListings();
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    const fetchRentListings = async () => {
-      try {
-        const res = await fetch("/api/listing/get?type=rent&limit=4");
-        const data = await res.json();
-        setRentListings(data);
-        fetchSaleListings();
-      } catch (error) {
-        console.log(error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchOfferListings = async () => {
+  //     try {
+  //       const res = await fetch("/api/listing/get?offer=true&limit=4");
+  //       const data = await res.json();
+  //       // setOfferListings([...manualListings, ...data]);
+  //       setOfferListings(data);
+  //       fetchRentListings();
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+  //   const fetchRentListings = async () => {
+  //     try {
+  //       const res = await fetch("/api/listing/get?type=rent&limit=4");
+  //       const data = await res.json();
+  //       setRentListings(data);
+  //       fetchSaleListings();
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
 
-    const fetchSaleListings = async () => {
-      try {
-        const res = await fetch("/api/listing/get?type=sale&limit=4");
-        const data = await res.json();
-        setSaleListings(data);
-      } catch (error) {
-        log(error);
-      }
-    };
-    // fetchOfferListings();
-    fetchOfferListings();
-    fetchRentListings();
-    fetchSaleListings();
-  }, []);
+  //   const fetchSaleListings = async () => {
+  //     try {
+  //       const res = await fetch("/api/listing/get?type=sale&limit=4");
+  //       const data = await res.json();
+  //       setSaleListings(data);
+  //     } catch (error) {
+  //       log(error);
+  //     }
+  //   };
+  //   // fetchOfferListings();
+  //   fetchOfferListings();
+  //   fetchRentListings();
+  //   fetchSaleListings();
+  // }, []);
 
   return (
     <section>
@@ -438,6 +438,18 @@ const Home = () => {
           </div>
         </div>
       </footer>
+
+      <Link
+        to={
+          "https://api.whatsapp.com/send/?phone=%2B2347063447840&text&type=phone_number&app_absent=0"
+        }
+      >
+        <img
+          className="whatsapp-icon"
+          src="/Images/whatsapp.png"
+          alt="Whatsapp Icon"
+        />
+      </Link>
     </section>
   );
 };

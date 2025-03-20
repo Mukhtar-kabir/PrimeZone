@@ -9,7 +9,7 @@ import Profile from "./Pages/Profile/Profile";
 import Contact from "./Pages/Contact/Contact";
 import Properties from "./Pages/Properties/Properties";
 import { PrivateRoute } from "./Components/PrivateRoute/PrivateRoute";
-import CreateListing from "./Pages/CreateListing/CreateListing";
+// import CreateListing from "./Pages/CreateListing/CreateListing";
 import UpdateListing from "./Pages/UpdateListing/UpdateListing";
 import Search from "./Pages/Search/Search";
 import PropertyPage from "./Pages/PropertyPage/PropertyPage";
@@ -27,7 +27,7 @@ const App = () => {
         <Route path="/search" element={<Search />} />
         <Route element={<PrivateRoute />}>
           <Route path="/profile" element={<Profile />} />
-          <Route path="/create-listing" element={<CreateListing />} />
+          {/* <Route path="/create-listing" element={<CreateListing />} /> */}
           <Route
             path="/update-listing/:listingId"
             element={<UpdateListing />}

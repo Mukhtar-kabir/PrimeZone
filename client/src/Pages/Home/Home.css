@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: sans-serif;
+  position: relative;
 }
 
 .hero {
@@ -398,6 +399,21 @@ footer .footer-container .right .terms {
   color: #fafafa;
 }
 
+.whatsapp-icon {
+  cursor: pointer;
+  position: fixed;
+  z-index: 10;
+  width: 4rem;
+  height: 4rem;
+  background: #fafafa;
+  font-family: inherit;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  bottom: 2rem;
+  right: 2rem;
+  cursor: pointer;
+}
+
 @media (max-width: 900px) {
   footer .footer-container {
     width: 90%;
@@ -406,5 +422,12 @@ footer .footer-container .right .terms {
 
   footer .footer-container .left {
     width: 100%;
+  }
+
+  .whatsapp-icon {
+    width: 3rem;
+    height: 3rem;
+    right: 1rem;
+    box-shadow: 2px 2px 2px 2px #b5b5d6;
   }
 }
