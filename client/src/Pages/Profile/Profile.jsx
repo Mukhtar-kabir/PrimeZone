@@ -40,94 +40,94 @@ const Profile = () => {
     }
   };
 
-  // const uploadImageToCloudinary = async (file) => {
-  //   setUploading(true);
-  //   const formData = new FormData();
-  //   formData.append("file", file);
-  //   formData.append("upload_preset", "ml_default"); // Set in Cloudinary settings
+  const uploadImageToCloudinary = async (file) => {
+    setUploading(true);
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", "ml_default"); // Set in Cloudinary settings
 
-  //   try {
-  //     const response = await axios.post(
-  //       "https://api.cloudinary.com/v1_1/drhqzdtnz/image/upload",
-  //       formData
-  //     );
+    try {
+      const response = await axios.post(
+        "https://api.cloudinary.com/v1_1/drhqzdtnz/image/upload",
+        formData
+      );
 
-  //     const newAvatarUrl = response.data.secure_url;
-  //     setAvatarUrl(newAvatarUrl); // Update preview
-  //     setFormData((prev) => ({ ...prev, avatar: newAvatarUrl }));
+      const newAvatarUrl = response.data.secure_url;
+      setAvatarUrl(newAvatarUrl); // Update preview
+      setFormData((prev) => ({ ...prev, avatar: newAvatarUrl }));
 
-  //     // setAvatarUrl(response.data.secure_url);
-  //     // updateUserProfile(response.data.secure_url);
-  //   } catch (error) {
-  //     console.error("Error uploading image:", error);
-  //   } finally {
-  //     setUploading(false);
-  //   }
-  // };
+      // setAvatarUrl(response.data.secure_url);
+      // updateUserProfile(response.data.secure_url);
+    } catch (error) {
+      console.error("Error uploading image:", error);
+    } finally {
+      setUploading(false);
+    }
+  };
 
-  // const handleChange = (e) => {
-  //   setFormData({ ...formData, [e.target.id]: e.target.value });
-  // };
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
 
-  // // Handle Form Submission
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
+  // Handle Form Submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  //   try {
-  //     dispatch(updateUserStart());
-  //     const res = await fetch(`/api/user/update/${currentUser._id}`, {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(formData),
-  //     });
+    try {
+      dispatch(updateUserStart());
+      const res = await fetch(`/api/user/update/${currentUser._id}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-  //     const data = await res.json();
-  //     if (data.success === false) {
-  //       dispatch(updateUserFailure(data.message));
-  //       return;
-  //     }
+      const data = await res.json();
+      if (data.success === false) {
+        dispatch(updateUserFailure(data.message));
+        return;
+      }
 
-  //     dispatch(updateUserSuccess(data));
-  //     setUpdateSuccess(true);
-  //   } catch (error) {
-  //     dispatch(updateUserFailure(error.message));
-  //   }
-  // };
+      dispatch(updateUserSuccess(data));
+      setUpdateSuccess(true);
+    } catch (error) {
+      dispatch(updateUserFailure(error.message));
+    }
+  };
 
-  // const handleDeleteUser = async () => {
-  //   try {
-  //     dispatch(deleteUserStart());
+  const handleDeleteUser = async () => {
+    try {
+      dispatch(deleteUserStart());
 
-  //     const res = await fetch(`/api/user/delete/${currentUser._id}`, {
-  //       method: "DELETE",
-  //     });
-  //     const data = await res.json();
-  //     if (data.success === false) {
-  //       dispatch(deleteUserFailure(data.message));
-  //       return;
-  //     }
-  //     dispatch(deleteUserSuccess(data));
-  //   } catch (error) {
-  //     dispatch(deleteUserFailure(error.message));
-  //   }
-  // };
+      const res = await fetch(`/api/user/delete/${currentUser._id}`, {
+        method: "DELETE",
+      });
+      const data = await res.json();
+      if (data.success === false) {
+        dispatch(deleteUserFailure(data.message));
+        return;
+      }
+      dispatch(deleteUserSuccess(data));
+    } catch (error) {
+      dispatch(deleteUserFailure(error.message));
+    }
+  };
 
-  // const handleSignOut = async () => {
-  //   try {
-  //     dispatch(signoutUserStart());
-  //     const res = await fetch("/api/auth/signout");
-  //     const data = await res.json();
-  //     if (data.success === false) {
-  //       dispatch(signoutUserFailure(data.message));
-  //       return;
-  //     }
-  //     dispatch(signoutUserSuccess(data));
-  //   } catch (error) {
-  //     dispatch(signoutUserFailure(data.message));
-  //   }
-  // };
+  const handleSignOut = async () => {
+    try {
+      dispatch(signoutUserStart());
+      const res = await fetch("/api/auth/signout");
+      const data = await res.json();
+      if (data.success === false) {
+        dispatch(signoutUserFailure(data.message));
+        return;
+      }
+      dispatch(signoutUserSuccess(data));
+    } catch (error) {
+      dispatch(signoutUserFailure(data.message));
+    }
+  };
 
   // const handleShowListings = async () => {
   //   try {
@@ -221,9 +221,9 @@ const Profile = () => {
           {loading ? "Loading..." : "Update"}
         </button>
 
-        <Link to={"/create-listing"} className="listing">
+        {/* <Link to={"/create-listing"} className="listing">
           Create Listing
-        </Link>
+        </Link> */}
 
         <div className="items">
           <span onClick={handleDeleteUser}>Delete account</span>
