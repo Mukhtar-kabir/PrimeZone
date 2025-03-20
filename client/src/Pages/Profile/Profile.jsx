@@ -10,7 +10,7 @@ import {
   deleteUserFailure,
   deleteUserStart,
   deleteUserSuccess,
-  signoutUserStart,
+  signOutUserStart,
   signoutUserFailure,
   signoutUserSuccess,
 } from "../../redux/user/userSlice";
@@ -114,18 +114,33 @@ const Profile = () => {
     }
   };
 
+  // const handleSignOut = async () => {
+  //   try {
+  //     dispatch(signoutUserStart());
+  //     const res = await fetch("/api/auth/signout");
+  //     const data = await res.json();
+  //     if (data.success === false) {
+  //       dispatch(signoutUserFailure(data.message));
+  //       return;
+  //     }
+  //     dispatch(signoutUserSuccess(data));
+  //   } catch (error) {
+  //     dispatch(signoutUserFailure(data.message));
+  //   }
+  // };
+
   const handleSignOut = async () => {
     try {
-      dispatch(signoutUserStart());
+      dispatch(signOutUserStart());
       const res = await fetch("/api/auth/signout");
       const data = await res.json();
       if (data.success === false) {
-        dispatch(signoutUserFailure(data.message));
+        dispatch(deleteUserFailure(data.message));
         return;
       }
-      dispatch(signoutUserSuccess(data));
+      dispatch(deleteUserSuccess(data));
     } catch (error) {
-      dispatch(signoutUserFailure(data.message));
+      dispatch(deleteUserFailure(data.message));
     }
   };
 
