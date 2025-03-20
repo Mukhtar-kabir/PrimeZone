@@ -32,9 +32,9 @@ app.use(cookieParser());
 // app.use(express.json({ limt: "50mb" }));
 // app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 
-app.listen(3000, () => {
-  console.log("Server running on port 3000");
-});
+// app.listen(3000, () => {
+//   console.log("Server running on port 3000");
+// });
 
 app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
