@@ -80,3 +80,5 @@ app.put("/api/user/update-avatar", async (req, res) => {
     res.status(500).json({ error: "Failed to update profile image" });
   }
 });
+
+export default app;
