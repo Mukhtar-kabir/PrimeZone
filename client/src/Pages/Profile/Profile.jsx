@@ -11,8 +11,6 @@ import {
   deleteUserStart,
   deleteUserSuccess,
   signOutUserStart,
-  signoutUserFailure,
-  signoutUserSuccess,
 } from "../../redux/user/userSlice";
 
 const Profile = () => {

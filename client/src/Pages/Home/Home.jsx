@@ -17,11 +17,15 @@ import { IoCallSharp } from "react-icons/io5";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
 import { FaWhatsappSquare } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 const Home = () => {
   const [offerListings, setOfferListings] = useState([]);
   const [saleListings, setSaleListings] = useState([]);
   const [rentListings, setRentListings] = useState([]);
+
+  const { currentUser } = useSelector((state) => state.user);
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -348,6 +352,11 @@ const Home = () => {
           <form
             onSubmit={(e) => {
               e.preventDefault();
+              if (!currentUser) {
+                alert("You need to sign in to send an inquiry.");
+                navigate("/sign-in");
+                return;
+              }
               const phoneNumber = "2347063447840";
               const message = `Assalamu alaikum, my name is ${formData.name}. I am reaching out through your website regarding real estate listings.
 

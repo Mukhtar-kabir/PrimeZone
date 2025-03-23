@@ -89,12 +89,12 @@ body {
   }
 
   .signup form input {
-    width: 50%;
+    width: 80%;
     padding: 0.5rem;
   }
 
   .signup form button {
-    width: 50%;
+    width: 80%;
     padding: 0.5rem;
   }
 

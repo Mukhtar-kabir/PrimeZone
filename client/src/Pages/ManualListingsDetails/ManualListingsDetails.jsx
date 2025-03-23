@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { manualListings } from "../../data/ManualListings";
 import "../ManualListingsDetails/ManualListingsDetails.css";
@@ -12,6 +12,7 @@ function ManualListingsDetails() {
   const [listing, setListing] = useState(null);
   const [contact, setContact] = useState(false);
   const { currentUser } = useSelector((state) => state.user);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const foundListing = manualListings.find((item) => item._id === id);
@@ -23,6 +24,15 @@ function ManualListingsDetails() {
   if (!listing) {
     return <p>Listing not found</p>;
   }
+
+  const handleContactClick = () => {
+    if (!currentUser) {
+      alert("You must be signed in to contact the landlord!");
+      navigate("/sign-in");
+      return;
+    }
+    setContact(true);
+  };
 
   return (
     <div className="manual-listing">
@@ -60,10 +70,16 @@ function ManualListingsDetails() {
         </div>
 
         {!contact && (
-          <button onClick={() => setContact(true)} className="contact-btn">
+          <button onClick={handleContactClick} className="contact-btn">
             Contact Landlord
           </button>
         )}
+
+        {/* {!contact && (
+          <button onClick={() => setContact(true)} className="contact-btn">
+            Contact Landlord
+          </button>
+        )} */}
 
         {contact && <ContactManual listing={listing} />}
       </div>
