@@ -142,7 +142,7 @@ const Home = () => {
       discountPrice: 48000000,
       offer: false,
       type: "rent",
-      bedrooms: 6,
+      bedrooms: 4,
       bathrooms: 4,
       userRef: "12350",
       imageUrls: ["/Images/6.jpeg"],
