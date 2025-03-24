@@ -1,17 +1,30 @@
+// import { defineConfig } from "vite";
+// import react from "@vitejs/plugin-react-swc";
+
+// // https://vite.dev/config/
+// export default defineConfig({
+//   server: {
+//     proxy: {
+//       "/api": {
+//         target: "http://localhost:3000",
+//         secure: false,
+//       },
+//     },
+//   },
+//   build: {
+//     outDir: "dist",
+//   },
+// });
+
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 
-// https://vite.dev/config/
 export default defineConfig({
-  server: {
-    proxy: {
-      "/api": {
-        target: "http://localhost:3000",
-        secure: false,
-      },
-    },
-  },
+  plugins: [react()],
   build: {
-    outDir: "dist",
+    outDir: "dist", // Matches "client/dist" in vercel.json
+  },
+  server: {
+    historyApiFallback: true, // Ensures SPA routing works
   },
 });
