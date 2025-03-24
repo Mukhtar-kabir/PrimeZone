@@ -21,10 +21,11 @@ import react from "@vitejs/plugin-react-swc";
 
 export default defineConfig({
   plugins: [react()],
+  base: "./", // Ensures correct asset paths in production
   build: {
-    outDir: "dist", // Matches "client/dist" in vercel.json
+    outDir: "dist",
   },
   server: {
-    historyApiFallback: true, // Ensures SPA routing works
+    historyApiFallback: true, // SPA routing support
   },
 });
