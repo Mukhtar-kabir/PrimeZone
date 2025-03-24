@@ -7,7 +7,7 @@
     },
     {
       "src": "/",
-      "use": "/",
+      "use": "@vercel/static-build",
       "config": { "distDir": "dist" }
     }
   ],
