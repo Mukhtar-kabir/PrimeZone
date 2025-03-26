@@ -11,6 +11,7 @@ import {
   deleteUserStart,
   deleteUserSuccess,
   signOutUserStart,
+  signoutUserFailure,
 } from "../../redux/user/userSlice";
 
 const Profile = () => {
@@ -114,16 +115,21 @@ const Profile = () => {
 
   // const handleSignOut = async () => {
   //   try {
-  //     dispatch(signoutUserStart());
-  //     const res = await fetch("/api/auth/signout");
+  //     dispatch(signOutUserStart());
+  //     const res = await fetch("/api/auth/signout", {
+  //       method: "GET",
+  //       credentials: "include", // Ensures cookies are sent
+  //     });
   //     const data = await res.json();
-  //     if (data.success === false) {
+
+  //     if (!data.success) {
   //       dispatch(signoutUserFailure(data.message));
   //       return;
   //     }
+
   //     dispatch(signoutUserSuccess(data));
   //   } catch (error) {
-  //     dispatch(signoutUserFailure(data.message));
+  //     dispatch(signoutUserFailure(error.message));
   //   }
   // };
 

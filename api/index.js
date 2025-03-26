@@ -20,12 +20,12 @@ mongoose
   .catch((error) => {
     console.log(error);
   });
+const __dirname = path.resolve();
 
 const app = express();
 
-const __dirname = path.resolve();
-
 app.use(express.json());
+
 app.use(cookieParser());
 
 // app.use(cors());
@@ -46,12 +46,6 @@ app.get("*", (req, res) => {
 });
 // app.use("/api/listing", listingRouter);
 // app.use("/api/inquiry", inquiryRouter);
-
-// app.use(express.static(path.join(__dirname, "/client/dist")));
-
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
-// });
 
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
@@ -86,5 +80,3 @@ app.put("/api/user/update-avatar", async (req, res) => {
     res.status(500).json({ error: "Failed to update profile image" });
   }
 });
-
-// export default app;
