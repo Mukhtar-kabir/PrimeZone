@@ -37,9 +37,13 @@ app.use("/api/auth", authRouter);
 
 app.use(express.static(path.join(__dirname, "client", "index.html")));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "index.html"));
+app.get("/", (req, res) => {
+  res.sendFile("Hello!");
 });
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "client", "index.html"));
+// });
+
 // app.use("/api/listing", listingRouter);
 // app.use("/api/inquiry", inquiryRouter);
 
