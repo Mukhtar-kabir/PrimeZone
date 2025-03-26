@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+const cors = require("cors");
 import userRouter from "./routes/user.route.js";
 import authRouter from "./routes/auth.route.js";
 import cookieParser from "cookie-parser";
@@ -38,7 +39,7 @@ app.use("/api/auth", authRouter);
 app.use(express.static(path.join(__dirname, "client", "index.html")));
 
 app.get("/", (req, res) => {
-  res.sendFile("Hello!");
+  res.json("Hello!");
 });
 // app.get("*", (req, res) => {
 //   res.sendFile(path.join(__dirname, "client", "index.html"));
