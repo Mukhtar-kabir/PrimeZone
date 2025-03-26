@@ -28,10 +28,6 @@ app.use(express.json());
 
 app.use(cookieParser());
 
-// app.use(cors());
-// app.use(express.json({ limt: "50mb" }));
-// app.use(express.urlencoded({ extended: true, limit: "50mb" }));
-
 app.listen(3000, () => {
   console.log("Server running on port 3000");
 });
