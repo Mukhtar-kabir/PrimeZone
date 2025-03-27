@@ -13,6 +13,7 @@ import {
   signOutUserStart,
   signoutUserFailure,
 } from "../../redux/user/userSlice";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const Profile = () => {
   const fileRef = useRef(null);
@@ -29,7 +30,6 @@ const Profile = () => {
     email: currentUser.email,
     avatar: currentUser.avatar,
   });
-  console.log("Form Data", formData);
 
   const handleFileChange = async (e) => {
     const selectedFile = e.target.files[0];
@@ -136,7 +136,12 @@ const Profile = () => {
   const handleSignOut = async () => {
     try {
       dispatch(signOutUserStart());
-      const res = await fetch("/api/auth/signout");
+      const res = await fetch(`/api/auth/signout`, {
+        method: "GET",
+        credentials: "include", // Ensures cookies are sent
+      });
+
+      if (!res.ok) throw new Error("Failed to sign out");
       const data = await res.json();
       if (data.success === false) {
         dispatch(deleteUserFailure(data.message));
@@ -226,14 +231,14 @@ const Profile = () => {
           type="username"
           placeholder="username"
           id="username"
-          onClick={handleChange}
+          onChange={handleChange}
         />
         <input
           defaultValue={currentUser.email}
           type="email"
           placeholder="email"
           id="email"
-          onClick={handleChange}
+          onChange={handleChange}
         />
         <input type="password" placeholder="password" id="password" />
         <button disabled={loading} className="disabled">

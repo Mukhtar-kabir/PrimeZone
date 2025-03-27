@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import userRouter from "./routes/user.route.js";
 import authRouter from "./routes/auth.route.js";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 // import listingRouter from "./routes/listing.route.js";
 // import inquiryRouter from "./routes/inquiry.route.js";
 import path from "path";
@@ -24,9 +25,24 @@ const __dirname = path.resolve();
 
 const app = express();
 
+app.use(
+  cors({
+    origin: "https://prime-zone-hcvk.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 
 app.use(cookieParser());
+
+// app.use(
+//   cors({
+//     origin: ["http://localhost:5173", "https://prime-zone-hcvk.vercel.app"], // Add your deployed frontend URL
+//     credentials: true, // Allow cookies and auth headers
+//   })
+// );
 
 app.listen(3000, () => {
   console.log("Server running on port 3000");
