@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import userRouter from "./routes/user.route.js";
 import authRouter from "./routes/auth.route.js";
 import cookieParser from "cookie-parser";
+const cors = require('cors')
 // import listingRouter from "./routes/listing.route.js";
 // import inquiryRouter from "./routes/inquiry.route.js";
 import path from "path";
@@ -23,6 +24,14 @@ mongoose
 const __dirname = path.resolve();
 
 const app = express();
+
+app.use(cors(
+    {
+        origin: ["https://prime-zone-hcvk.vercel.app"],
+        methods: ["POST", "GET"],
+        credentials: true
+    }
+));
 
 app.use(express.json());
 
