@@ -353,8 +353,7 @@
 /* Footer */
 
 footer {
-  background: #04042c;
-  color: #fafafa;
+  color: #000;
   padding: 100px 0;
 }
 
@@ -386,7 +385,7 @@ footer .footer-container .right .links {
 }
 
 footer .footer-container .right .links .link {
-  color: #fafafa;
+  color: #505050;
 }
 
 footer .footer-container .right .links .link:hover,
@@ -396,7 +395,7 @@ footer .footer-container .right .terms:hover {
 
 footer .footer-container .right .terms {
   text-decoration: none;
-  color: #fafafa;
+  color: #505050;
 }
 
 .whatsapp-icon {

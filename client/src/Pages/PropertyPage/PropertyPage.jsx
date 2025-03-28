@@ -7,6 +7,7 @@ import { manualListings } from "../../data/ManualListings";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
 import { FaWhatsappSquare } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 
 function PropertyPage() {
@@ -99,7 +100,7 @@ function PropertyPage() {
         </div>
       </div>
 
-      <div className="inquiry">
+      {/* <div className="inquiry">
         <div className="inquiry-form">
           <h2>Make an Inquiry?</h2>
           <form
@@ -145,16 +146,26 @@ function PropertyPage() {
               value={formData.email}
               onChange={handleChange}
             />
-            {/* <textarea
+            <textarea
               name="message"
               placeholder="Message"
               required
               value={formData.message}
               onChange={handleChange}
-            ></textarea> */}
+            ></textarea>
             <button type="submit">Send via WhatsApp</button>
           </form>
         </div>
+      </div> */}
+
+      <div className="locate">
+        <iframe
+          width="100%"
+          height="400"
+          src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=en&amp;q=No%20344%20BUk%20Road%20opposite%20kano%20polytechnic%20central%20admin.+(PrimeZone%20Estates%20LTD)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+        >
+          <a href="https://www.gps.ie/collections/drones/">gps drone</a>
+        </iframe>
       </div>
 
       <footer>
@@ -168,7 +179,7 @@ function PropertyPage() {
               seamless experience for our clients.
             </p>
             <h4>Address:</h4>
-            <p>456 Skyline Avenue, Metroville, FAKE456</p>
+            <p>No 344 BUk Road opposite kano polytechnic central admin.</p>
           </div>
 
           <div className="right">
@@ -177,11 +188,24 @@ function PropertyPage() {
                 <FaTwitter />
               </Link>
 
-              <Link to="" className="link">
+              <Link
+                to="https://www.instagram.com/muhseen_estate_expert?igsh=eHphMGs5ZjRvczdq&utm_source=qr"
+                className="link"
+              >
                 <FaInstagramSquare />
               </Link>
 
-              <Link to="" className="link">
+              <Link
+                to="https://www.facebook.com/share/165HC6dhtA/?mibextid=LQQJ4d"
+                className="link"
+              >
+                <FaFacebook />
+              </Link>
+
+              <Link
+                to="https://api.whatsapp.com/send/?phone=%2B2347063447840&text&type=phone_number&app_absent=0"
+                className="link"
+              >
                 <FaWhatsappSquare />
               </Link>
             </div>
@@ -192,6 +216,7 @@ function PropertyPage() {
           </div>
         </div>
       </footer>
+
       <Link
         to={
           "https://api.whatsapp.com/send/?phone=%2B2347063447840&text&type=phone_number&app_absent=0"

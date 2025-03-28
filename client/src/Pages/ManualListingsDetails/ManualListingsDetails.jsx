@@ -25,14 +25,14 @@ function ManualListingsDetails() {
     return <p>Listing not found</p>;
   }
 
-  const handleContactClick = () => {
-    if (!currentUser) {
-      alert("You must be signed in to contact the landlord!");
-      navigate("/sign-in");
-      return;
-    }
-    setContact(true);
-  };
+  // const handleContactClick = () => {
+  //   if (!currentUser) {
+  //     alert("You must be signed in to contact the landlord!");
+  //     navigate("/sign-in");
+  //     return;
+  //   }
+  //   setContact(true);
+  // };
 
   return (
     <div className="manual-listing">
@@ -69,17 +69,13 @@ function ManualListingsDetails() {
           </div>
         </div>
 
-        {!contact && (
-          <button onClick={handleContactClick} className="contact-btn">
-            Contact Landlord
-          </button>
-        )}
+        {/* {!contact && <button className="contact-btn">Contact Landlord</button>} */}
 
-        {/* {!contact && (
+        {!contact && (
           <button onClick={() => setContact(true)} className="contact-btn">
             Contact Landlord
           </button>
-        )} */}
+        )}
 
         {contact && <ContactManual listing={listing} />}
       </div>
