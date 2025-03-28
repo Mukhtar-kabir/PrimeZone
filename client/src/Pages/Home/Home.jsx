@@ -430,8 +430,6 @@ const Home = () => {
               flexible payment options and 24/7 customer support, ensuring a
               seamless experience for our clients.
             </p>
-            <h4>Address:</h4>
-            <p>No 344 BUk Road opposite kano polytechnic central admin.</p>
           </div>
 
           <div className="right">
@@ -465,6 +463,19 @@ const Home = () => {
             <Link to="" className="terms">
               <h4>Terms & Privacy Policy</h4>
             </Link>
+          </div>
+        </div>
+
+        <div className="contact-container">
+          <div className="">
+            <h4>Address:</h4>
+            <p>No 344 BUk Road opposite kano polytechnic central admin.</p>
+          </div>
+
+          <div className="">
+            <h4>Contact:</h4>
+            <p>07063447840</p>
+            <p>09064404380</p>
           </div>
         </div>
       </footer>

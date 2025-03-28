@@ -398,6 +398,20 @@ footer .footer-container .right .terms {
   color: #505050;
 }
 
+footer .contact-container {
+  width: 80%;
+  margin: auto;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #646464;
+}
+
+footer .contact-container h4 {
+  margin-bottom: 0.8rem;
+}
+
 .whatsapp-icon {
   cursor: pointer;
   position: fixed;
@@ -421,6 +435,16 @@ footer .footer-container .right .terms {
 
   footer .footer-container .left {
     width: 100%;
+  }
+
+  footer .contact-container {
+    display: grid;
+    width: 90%;
+    gap: 2rem;
+  }
+
+  footer .contact-container h4 {
+    margin-bottom: 0.4rem;
   }
 
   .whatsapp-icon {
