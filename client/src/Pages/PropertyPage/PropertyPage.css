@@ -65,8 +65,8 @@
   }
 
   .properties .properties-Page {
-    width: 100%;
-    grid-template-columns: repeat(1, 1fr);
+    display: flex;
+    flex-wrap: wrap;
   }
 
   .properties h3 {

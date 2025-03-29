@@ -18,15 +18,32 @@ import { FaTwitter } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
 import { FaWhatsappSquare } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
+import { MdUnfoldMore } from "react-icons/md";
 import { MdCategory } from "react-icons/md";
 import { useSelector } from "react-redux";
 
 const Home = () => {
   const [showCategories, setShowCategories] = useState(false);
+  const [showCategoriesHome, setShowCategoriesHome] = useState(false);
 
   const toggleCategories = () => {
     setShowCategories((prev) => !prev);
   };
+
+  const toggleCategoriesHome = () => {
+    setShowCategoriesHome((prev) => !prev);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowCategoriesHome(false); // Hide categories when scrolling
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const [counts, setCounts] = useState({
     propertiesSold: 0,
@@ -189,35 +206,35 @@ const Home = () => {
       userRef: "12348",
       imageUrls: ["/Images/4.jpeg"],
     },
-    {
-      _id: "manual-5",
-      name: "Luxury",
-      address: "Ibadan, Nigeria",
-      description: "A luxurious villa with a stunning view.",
-      regularPrice: "600,000,000",
-      discountPrice: 48000000,
-      offer: false,
-      type: "rent",
-      bedrooms: 6,
-      bathrooms: 4,
-      userRef: "12349",
-      imageUrls: ["/Images/5.jpeg"],
-    },
+    // {
+    //   _id: "manual-5",
+    //   name: "Luxury",
+    //   address: "Ibadan, Nigeria",
+    //   description: "A luxurious villa with a stunning view.",
+    //   regularPrice: "600,000,000",
+    //   discountPrice: 48000000,
+    //   offer: false,
+    //   type: "rent",
+    //   bedrooms: 6,
+    //   bathrooms: 4,
+    //   userRef: "12349",
+    //   imageUrls: ["/Images/5.jpeg"],
+    // },
 
-    {
-      _id: "manual-6",
-      name: "Luxury",
-      address: "Ibadan, Nigeria",
-      description: "A luxurious villa with a stunning view.",
-      regularPrice: "600,000,000",
-      discountPrice: 48000000,
-      offer: false,
-      type: "rent",
-      bedrooms: 4,
-      bathrooms: 4,
-      userRef: "12350",
-      imageUrls: ["/Images/6.jpeg"],
-    },
+    // {
+    //   _id: "manual-6",
+    //   name: "Luxury",
+    //   address: "Ibadan, Nigeria",
+    //   description: "A luxurious villa with a stunning view.",
+    //   regularPrice: "600,000,000",
+    //   discountPrice: 48000000,
+    //   offer: false,
+    //   type: "rent",
+    //   bedrooms: 4,
+    //   bathrooms: 4,
+    //   userRef: "12350",
+    //   imageUrls: ["/Images/6.jpeg"],
+    // },
   ];
 
   // useEffect(() => {
@@ -267,9 +284,20 @@ const Home = () => {
             Hundreds.
           </h1>
           <p>We don`t just sell plots—we build communities.</p>
-          <Link to={"/search"}>
-            <button>View More Properties</button>
-          </Link>
+
+          <div className="categories-hero">
+            <div className="view">
+              <button onClick={toggleCategoriesHome}>View Properties</button>
+              <MdUnfoldMore />
+            </div>
+            {showCategoriesHome && (
+              <ul className="category-list">
+                <li>Land/plots</li>
+                <li>Luxury homes</li>
+                <li>Distress properties</li>
+              </ul>
+            )}
+          </div>
         </div>
       </div>
 
@@ -298,7 +326,7 @@ const Home = () => {
         <div className="properties-content">
           <div className="defaults">
             <div className="manual-listings">
-              <h2>Featured Properties</h2>
+              <h2>Hot Deals</h2>
               <div className="listings-grid">
                 {manualListings.map((listing) => (
                   <ListingItem listing={listing} key={listing._id} />
@@ -355,6 +383,25 @@ const Home = () => {
               </div>
             </div>
           )} */}
+        </div>
+      </div>
+
+      <div className="achievements" ref={achievementRef}>
+        <div className="achievement-container">
+          <div className="achievement">
+            <IoIosHome className="icon home" />
+            <p>{counts.propertiesSold}+ Properties Sold</p>
+          </div>
+
+          <div className="achievement">
+            <FaHandshake className="icon hand" />
+            <p>{counts.partnerDevelopers} Partner Developers</p>
+          </div>
+
+          <div className="achievement">
+            <FaRegBuilding className="icon build" />
+            <p>{counts.propertiesAvailable} Properties Available</p>
+          </div>
         </div>
       </div>
 
@@ -474,25 +521,6 @@ const Home = () => {
         </iframe>
       </div>
 
-      <div className="achievements" ref={achievementRef}>
-        <div className="achievement-container">
-          <div className="achievement">
-            <IoIosHome className="icon home" />
-            <p>{counts.propertiesSold}+ Properties Sold</p>
-          </div>
-
-          <div className="achievement">
-            <FaHandshake className="icon hand" />
-            <p>{counts.partnerDevelopers} Partner Developers</p>
-          </div>
-
-          <div className="achievement">
-            <FaRegBuilding className="icon build" />
-            <p>{counts.propertiesAvailable} Properties Available</p>
-          </div>
-        </div>
-      </div>
-
       <footer>
         <div className="footer-container">
           <div className="left">
@@ -558,7 +586,11 @@ const Home = () => {
       </footer>
 
       <div className="categories" onClick={toggleCategories}>
-        <MdCategory />
+        {/* <MdCategory /> */}
+        <div className="view">
+          <p>View Properties</p>
+          <MdUnfoldMore />
+        </div>
         {showCategories && (
           <ul className="category-list">
             <li>Land/plots</li>

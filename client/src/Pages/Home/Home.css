@@ -41,6 +41,26 @@
   cursor: pointer;
 }
 
+.categories-hero .category-list {
+  position: fixed;
+  background: #fff;
+  list-style: none;
+  padding: 10px;
+  top: 27rem;
+  width: 15rem;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.categories-hero .category-list li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.categories-hero .category-list li:hover {
+  background: #f0f0f0;
+}
+
 .hero button:hover {
   background: #1e1e50;
 }
@@ -141,8 +161,8 @@
 }
 
 .properties .default img {
-  width: 20rem;
-  height: 20rem;
+  /* width: 20rem;
+  height: 20rem; */
   object-fit: cover;
   border-radius: 5px;
 }
@@ -192,12 +212,9 @@
   margin-bottom: 1rem;
 }
 
-.properties .properties-content .items .offer,
-.properties .properties-content .items .rent,
-.properties .properties-content .items .sale,
 .properties .properties-content .defaults .manual-listings .listings-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   margin-bottom: 5rem;
 }
@@ -212,11 +229,9 @@
 }
 
 @media (max-width: 900px) {
-  .properties .properties-content .items .offer,
-  .properties .properties-content .items .rent,
-  .properties .properties-content .items .sale,
   .properties .properties-content .defaults .manual-listings .listings-grid {
-    grid-template-columns: repeat(1, 1fr);
+    display: flex;
+    flex-wrap: wrap;
   }
 
   .properties .properties-content {
@@ -425,15 +440,19 @@ footer .contact-container h4 {
   right: 2rem;
   bottom: 2rem;
   background: #ffff;
-  width: 4rem;
-  height: 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  font-size: 1.5rem;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 0.8rem;
   cursor: pointer;
   color: #04042c;
+}
+
+.categories .view {
+  display: flex;
+  align-items: center;
 }
 
 .categories:hover {
@@ -447,7 +466,7 @@ footer .contact-container h4 {
   border-radius: 5px;
   list-style: none;
   padding: 10px;
-  bottom: 5rem;
+  bottom: 2rem;
   width: 15rem;
   /* margin: 0; */
   display: flex;
@@ -491,9 +510,12 @@ footer .contact-container h4 {
   }
 
   .categories {
-    width: 3rem;
-    height: 3rem;
+    padding: 7px;
     right: 1rem;
     box-shadow: 2px 2px 2px 2px #b5b5d6;
+  }
+
+  .categories-hero .category-list {
+    top: 20rem;
   }
 }

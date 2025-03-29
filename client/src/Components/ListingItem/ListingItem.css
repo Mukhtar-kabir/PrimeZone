@@ -65,3 +65,17 @@
   gap: 1rem;
   opacity: 0.8;
 }
+
+@media (max-width: 900px) {
+  .listing-item {
+    width: 47%;
+  }
+
+  .listing-item img {
+    height: 10rem;
+  }
+
+  .listing-item .desc {
+    width: 140px;
+  }
+}
