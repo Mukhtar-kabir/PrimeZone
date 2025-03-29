@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 import "../Home/Home.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -18,12 +18,82 @@ import { FaTwitter } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
 import { FaWhatsappSquare } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
+import { MdCategory } from "react-icons/md";
 import { useSelector } from "react-redux";
 
 const Home = () => {
-  const [offerListings, setOfferListings] = useState([]);
-  const [saleListings, setSaleListings] = useState([]);
-  const [rentListings, setRentListings] = useState([]);
+  const [showCategories, setShowCategories] = useState(false);
+
+  const toggleCategories = () => {
+    setShowCategories((prev) => !prev);
+  };
+
+  const [counts, setCounts] = useState({
+    propertiesSold: 0,
+    partnerDevelopers: 0,
+    propertiesAvailable: 0,
+  });
+
+  const achievementRef = useRef(null);
+  const animationTriggered = useRef(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting && !animationTriggered.current) {
+          animationTriggered.current = true;
+          animateCounts();
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (achievementRef.current) {
+      observer.observe(achievementRef.current);
+    }
+
+    return () => {
+      if (achievementRef.current) {
+        observer.unobserve(achievementRef.current);
+      }
+    };
+  }, []);
+
+  const animateCounts = () => {
+    let start = 0;
+    const duration = 4000; // 2 seconds
+    const increment = 50; // Speed of count
+    const totalFrames = duration / increment;
+
+    const targetValues = {
+      propertiesSold: 100,
+      partnerDevelopers: 26,
+      propertiesAvailable: 36,
+    };
+
+    let frame = 0;
+
+    const interval = setInterval(() => {
+      frame++;
+      setCounts({
+        propertiesSold: Math.min(
+          Math.floor((frame / totalFrames) * targetValues.propertiesSold),
+          targetValues.propertiesSold
+        ),
+        partnerDevelopers: Math.min(
+          Math.floor((frame / totalFrames) * targetValues.partnerDevelopers),
+          targetValues.partnerDevelopers
+        ),
+        propertiesAvailable: Math.min(
+          Math.floor((frame / totalFrames) * targetValues.propertiesAvailable),
+          targetValues.propertiesAvailable
+        ),
+      });
+
+      if (frame >= totalFrames) clearInterval(interval);
+    }, increment);
+  };
 
   const { currentUser } = useSelector((state) => state.user);
   const navigate = useNavigate();
@@ -192,30 +262,14 @@ const Home = () => {
     <section>
       <div className="hero">
         <div className="banner">
-          <h1>Find your Dream home with Flexible Payment Plans</h1>
-          <p>Luxury, Comfort, and Convenience - All in One</p>
+          <h1>
+            Kano`s No.1 Platform for Flexible Payment Plots ~ Trusted by
+            Hundreds.
+          </h1>
+          <p>We don`t just sell plots—we build communities.</p>
           <Link to={"/search"}>
-            <button>Explore Properties</button>
+            <button>View More Properties</button>
           </Link>
-        </div>
-      </div>
-
-      <div className="achievements">
-        <div className="achievement-container">
-          <div className="achievement">
-            <IoIosHome className="icon home" />
-            <p>100+ Properties Sold</p>
-          </div>
-
-          <div className="achievement">
-            <FaHandshake className="icon hand" />
-            <p>26 Partner Developers</p>
-          </div>
-
-          <div className="achievement">
-            <FaRegBuilding className="icon build" />
-            <p>36 Properties Available</p>
-          </div>
         </div>
       </div>
 
@@ -420,10 +474,33 @@ const Home = () => {
         </iframe>
       </div>
 
+      <div className="achievements" ref={achievementRef}>
+        <div className="achievement-container">
+          <div className="achievement">
+            <IoIosHome className="icon home" />
+            <p>{counts.propertiesSold}+ Properties Sold</p>
+          </div>
+
+          <div className="achievement">
+            <FaHandshake className="icon hand" />
+            <p>{counts.partnerDevelopers} Partner Developers</p>
+          </div>
+
+          <div className="achievement">
+            <FaRegBuilding className="icon build" />
+            <p>{counts.propertiesAvailable} Properties Available</p>
+          </div>
+        </div>
+      </div>
+
       <footer>
         <div className="footer-container">
           <div className="left">
-            <img src="/Images/logo.jpeg" alt="" />
+            {/* <img src="/Images/logo.jpeg" alt="" /> */}
+            <h3>
+              PrimeZone <br />
+              Estates LTD.
+            </h3>
             <p>
               PrimeZone Estates LTD is a trusted real estate company committed
               to providing premium properties in prime locations. We offer
@@ -480,17 +557,16 @@ const Home = () => {
         </div>
       </footer>
 
-      <Link
-        to={
-          "https://api.whatsapp.com/send/?phone=%2B2347063447840&text&type=phone_number&app_absent=0"
-        }
-      >
-        <img
-          className="whatsapp-icon"
-          src="/Images/whatsapp.png"
-          alt="Whatsapp Icon"
-        />
-      </Link>
+      <div className="categories" onClick={toggleCategories}>
+        <MdCategory />
+        {showCategories && (
+          <ul className="category-list">
+            <li>Land/plots</li>
+            <li>Luxury homes</li>
+            <li>Distress properties</li>
+          </ul>
+        )}
+      </div>
     </section>
   );
 };

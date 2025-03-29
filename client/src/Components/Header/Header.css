@@ -41,8 +41,13 @@ header .center button {
   cursor: pointer;
 }
 
-header .items .left img {
-  width: 5rem;
+header .items .left .link {
+  text-decoration: none;
+  color: #fafafa;
+}
+
+header .items .left .link h3 {
+  font-family: "Courier New", Courier, monospace;
 }
 
 header .hamburger {
@@ -80,8 +85,8 @@ header .items .right .profile img {
     width: 90%;
   }
 
-  header .items .left img {
-    width: 3rem;
+  header .items .left .link h3 {
+    font-size: 0.6rem;
   }
 
   header .hamburger {

@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from "react";
+import "./App.css";
+import { useState, useEffect } from "react";
 import Header from "./Components/Header/Header";
 import Home from "./Pages/Home/Home";
 import SignIn from "./Pages/SignIn/SignIn";
@@ -16,32 +18,47 @@ import PropertyPage from "./Pages/PropertyPage/PropertyPage";
 import ManualListingsDetails from "./Pages/ManualListingsDetails/ManualListingsDetails";
 
 const App = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+
   return (
     <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/search" element={<Search />} />
-        <Route element={<PrivateRoute />}>
-          <Route path="/profile" element={<Profile />} />
-          {/* <Route path="/create-listing" element={<CreateListing />} /> */}
-          <Route
-            path="/update-listing/:listingId"
-            element={<UpdateListing />}
-          />
-        </Route>
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/listing/:listingId" element={<Properties />} />
-        <Route
-          path="/manual-listing/:id"
-          element={<ManualListingsDetails />}
-        />{" "}
-        {/* New route */}
-        <Route path="/property-page" element={<PropertyPage />} />
-      </Routes>
+      {loading ? (
+        <div className="loader-container">
+          <span className="loader"></span>
+          {/* <p>Loading...</p> */}
+        </div>
+      ) : (
+        <>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/sign-in" element={<SignIn />} />
+            <Route path="/sign-up" element={<SignUp />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/search" element={<Search />} />
+            <Route element={<PrivateRoute />}>
+              <Route path="/profile" element={<Profile />} />
+              <Route
+                path="/update-listing/:listingId"
+                element={<UpdateListing />}
+              />
+            </Route>
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/listing/:listingId" element={<Properties />} />
+            <Route
+              path="/manual-listing/:id"
+              element={<ManualListingsDetails />}
+            />
+            <Route path="/property-page" element={<PropertyPage />} />
+          </Routes>
+        </>
+      )}
     </BrowserRouter>
   );
 };

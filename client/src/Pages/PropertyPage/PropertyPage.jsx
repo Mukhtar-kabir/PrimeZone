@@ -8,9 +8,16 @@ import { FaTwitter } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
 import { FaWhatsappSquare } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
+import { MdCategory } from "react-icons/md";
 import { useLocation } from "react-router-dom";
 
 function PropertyPage() {
+  const [showCategories, setShowCategories] = useState(false);
+
+  const toggleCategories = () => {
+    setShowCategories((prev) => !prev);
+  };
+
   const location = useLocation();
   const urlParams = new URLSearchParams(location.search);
   const searchTerm = urlParams.get("searchTerm") || ""; // Extract search term from URL
@@ -171,7 +178,11 @@ function PropertyPage() {
       <footer>
         <div className="footer-container">
           <div className="left">
-            <img src="/Images/logo.jpeg" alt="" />
+            {/* <img src="/Images/logo.jpeg" alt="" /> */}
+            <h3>
+              PrimeZone <br />
+              Estates LTD.
+            </h3>
             <p>
               PrimeZone Estates LTD is a trusted real estate company committed
               to providing premium properties in prime locations. We offer
@@ -228,17 +239,16 @@ function PropertyPage() {
         </div>
       </footer>
 
-      <Link
-        to={
-          "https://api.whatsapp.com/send/?phone=%2B2347063447840&text&type=phone_number&app_absent=0"
-        }
-      >
-        <img
-          className="whatsapp-icon"
-          src="/Images/whatsapp.png"
-          alt="Whatsapp Icon"
-        />
-      </Link>
+      <div className="categories" onClick={toggleCategories}>
+        <MdCategory />
+        {showCategories && (
+          <ul className="category-list">
+            <li>Land/plots</li>
+            <li>Luxury homes</li>
+            <li>Distress properties</li>
+          </ul>
+        )}
+      </div>
     </>
   );
 }

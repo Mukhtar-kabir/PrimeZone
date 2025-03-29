@@ -30,8 +30,12 @@ const Header = () => {
     <header>
       <div className="items">
         <div className="left">
-          <Link to={"/"}>
-            <img src="Images/logo.jpeg" alt="LOGO" />
+          <Link to={"/"} className="link">
+            <h3>
+              PrimeZone <br />
+              Estates LTD.
+            </h3>
+            {/* <img src="Images/logo.jpeg" alt="LOGO" /> */}
           </Link>
         </div>
 

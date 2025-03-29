@@ -17,8 +17,8 @@
 }
 
 .hero .banner {
-  width: 60%;
-  padding: 3rem 8rem;
+  width: 70%;
+  padding: 4rem 8rem;
 }
 
 .hero h1 {
@@ -54,6 +54,7 @@
   .hero h1 {
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
+    line-height: 1.4;
   }
 }
 
@@ -103,19 +104,23 @@
   }
 
   .achievements .achievement-container .achievement {
-    margin-bottom: 3rem;
+    margin-bottom: 5rem;
   }
 
   .achievements .achievement-container .achievement p {
-    font-size: 0.8rem;
+    font-size: 1.3rem;
   }
 
   .achievements .achievement-container .icon {
-    font-size: 2rem;
+    font-size: 3.2rem;
   }
 }
 
 /* Swiper */
+
+.swiper {
+  margin-top: 2rem;
+}
 
 .swiper img {
   width: 100%;
@@ -353,7 +358,8 @@
 /* Footer */
 
 footer {
-  color: #000;
+  background: #04042c;
+  color: #fafafa;
   padding: 100px 0;
 }
 
@@ -366,16 +372,17 @@ footer .footer-container {
 
 footer .footer-container .left {
   width: 50%;
-  line-height: 1.8;
 }
 
-footer .footer-container .left img {
-  width: 3rem;
+footer .footer-container .left h3 {
+  font-family: "Courier New", Courier, monospace;
+  margin-bottom: 1rem;
 }
 
 footer .footer-container .left p {
   margin-bottom: 2rem;
   opacity: 0.6;
+  line-height: 1.8;
 }
 
 footer .footer-container .right .links {
@@ -385,7 +392,7 @@ footer .footer-container .right .links {
 }
 
 footer .footer-container .right .links .link {
-  color: #505050;
+  color: #bdbdbd;
 }
 
 footer .footer-container .right .links .link:hover,
@@ -395,7 +402,7 @@ footer .footer-container .right .terms:hover {
 
 footer .footer-container .right .terms {
   text-decoration: none;
-  color: #505050;
+  color: #bdbdbd;
 }
 
 footer .contact-container {
@@ -405,26 +412,58 @@ footer .contact-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #646464;
+  color: #bdbdbd;
 }
 
 footer .contact-container h4 {
   margin-bottom: 0.8rem;
 }
 
-.whatsapp-icon {
-  cursor: pointer;
+.categories {
   position: fixed;
   z-index: 10;
+  right: 2rem;
+  bottom: 2rem;
+  background: #ffff;
   width: 4rem;
   height: 4rem;
-  background: #fafafa;
-  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 50%;
   font-size: 1.5rem;
-  bottom: 2rem;
-  right: 2rem;
   cursor: pointer;
+  color: #04042c;
+}
+
+.categories:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.categories .category-list {
+  position: absolute;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  list-style: none;
+  padding: 10px;
+  bottom: 5rem;
+  width: 15rem;
+  /* margin: 0; */
+  display: flex;
+  flex-direction: column;
+  /* gap: 5px; */
+  font-size: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.categories .category-list li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.categories .category-list li:hover {
+  background: #f0f0f0;
 }
 
 @media (max-width: 900px) {
@@ -435,6 +474,10 @@ footer .contact-container h4 {
 
   footer .footer-container .left {
     width: 100%;
+  }
+
+  footer .footer-container .left h3 {
+    font-size: 0.6rem;
   }
 
   footer .contact-container {
