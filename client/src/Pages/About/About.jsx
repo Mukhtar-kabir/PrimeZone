@@ -3,10 +3,11 @@ import "../About/About.css";
 import { MdCategory } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { FaTwitter } from "react-icons/fa";
-import { FaInstagramSquare } from "react-icons/fa";
-import { FaWhatsappSquare } from "react-icons/fa";
-import { FaFacebook } from "react-icons/fa";
+import { MdUnfoldMore } from "react-icons/md";
+import { FaSackDollar } from "react-icons/fa6";
+import { FaLocationDot } from "react-icons/fa6";
+import { IoCallSharp } from "react-icons/io5";
+import { FaAward } from "react-icons/fa";
 
 const About = () => {
   const [showCategories, setShowCategories] = useState(false);
@@ -17,7 +18,96 @@ const About = () => {
 
   return (
     <section>
-      <div className="about"></div>
+      <div className="about">
+        <div className="why-choose-us">
+          <div className="why-choose-us_container">
+            <h2>Why Choose Us</h2>
+            <div className="contents">
+              <div className="content">
+                <FaAward className="icon" />
+                <p>Trusted Real Estate Experts</p>
+                <span>
+                  Our team of seasoned real estate professionals ensures
+                  reliable guidance and expert advice for all your property
+                  needs.
+                </span>
+              </div>
+
+              <div className="content">
+                <FaSackDollar className="icon" />
+                <p>Flexible Payment Options</p>
+                <span>
+                  We offer a variety of payment plans tailored to suit your
+                  budget and financial preferences.
+                </span>
+              </div>
+
+              <div className="content">
+                <FaLocationDot className="icon" />
+                <p>Prime Locations</p>
+                <span>
+                  Our properties are strategically situated in sought-after
+                  areas, offering convenience and high investment value.
+                </span>
+              </div>
+
+              <div className="content">
+                <IoCallSharp className="icon" />
+                <p>24/7 Customer Support</p>
+                <span>
+                  Our dedicated support team is available around the clock to
+                  assist you with any inquiries or concerns.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="founder">
+        <div className="founder-container">
+          <h2>Meet the Founders</h2>
+
+          <div className="contents">
+            <div className="content-item">
+              {/* <img src="/Images/twitter.png" alt="" /> */}
+              <div className="content">
+                <p>
+                  <span>Muhsin</span>, popularly known as 'Muhseen Estate
+                  Expert,' isn`t just selling plots, he’s revolutionizing Kano’s
+                  real estate with a simple belief: every family deserves land
+                  ownership without financial strain. In just 8 months, his
+                  innovative flexible payment plans have empowered 100+ families
+                  and investors to secure their dream plots across Kano’s prime
+                  estates. A tech-savvy entrepreneur, Muhseen was Nigeria’s 1st
+                  Agrohack competition winner 2023 (EDC & Mastercard Foundation)
+                  and also a winner in the Agrichacking Challenge (BUK & World
+                  Bank). His mission? To eliminate scams, simplify ownership,
+                  and build generational wealth for Kano’s residents.{" "}
+                </p>
+              </div>
+            </div>
+
+            <div className="content-item">
+              {/* <img src="/Images/twitter.png" alt="" /> */}
+              <div className="content">
+                <p>
+                  <span>Anwar</span> brings a deep understanding of land,
+                  location, and development trends to real estate. With a
+                  Geography degree from Federal University Dutsin-Ma, he
+                  combines spatial expertise with strategic planning to help
+                  clients secure the best properties. As General Manager, he
+                  plays a key role in property sourcing, market analysis, and
+                  ensuring smooth transactions. His knowledge of Kano’s real
+                  estate landscape helps bridge the gap between investors,
+                  developers, and homebuyers, ensuring every deal is built on
+                  trust, value, and long-term potential.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <footer>
         <div className="footer-container">
@@ -38,28 +128,28 @@ const About = () => {
           <div className="right">
             <div className="links">
               <Link to="" className="link">
-                <FaTwitter />
+                <img src="/Images/twitter.png" alt="" />
               </Link>
 
               <Link
                 to="https://www.instagram.com/muhseen_estate_expert?igsh=eHphMGs5ZjRvczdq&utm_source=qr"
                 className="link"
               >
-                <FaInstagramSquare />
+                <img src="/Images/instagram.png" alt="" />
               </Link>
 
               <Link
                 to="https://www.facebook.com/share/165HC6dhtA/?mibextid=LQQJ4d"
                 className="link"
               >
-                <FaFacebook />
+                <img src="/Images/facebook.png" alt="" />
               </Link>
 
               <Link
                 to="https://api.whatsapp.com/send/?phone=%2B2347063447840&text&type=phone_number&app_absent=0"
                 className="link"
               >
-                <FaWhatsappSquare />
+                <img src="/Images/whatsapp.png" alt="" />
               </Link>
             </div>
 
@@ -84,7 +174,11 @@ const About = () => {
       </footer>
 
       <div className="categories" onClick={toggleCategories}>
-        <MdCategory />
+        {/* <MdCategory /> */}
+        <div className="view">
+          <p>View Properties</p>
+          <MdUnfoldMore />
+        </div>
         {showCategories && (
           <ul className="category-list">
             <li>Land/plots</li>

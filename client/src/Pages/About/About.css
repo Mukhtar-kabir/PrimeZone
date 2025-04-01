@@ -1,18 +1,37 @@
-/* .whatsapp-icon {
-  cursor: pointer;
-  position: fixed;
-  z-index: 10;
-  width: 5rem;
-  height: 5rem;
-  background: #fafafa;
-  font-family: inherit;
-  border-radius: 50%;
-  font-size: 1.5rem;
-  bottom: 2rem;
-  right: 2rem;
-  cursor: pointer;
-} */
-
 .about {
   padding: 100px 0;
+}
+
+.founder {
+  padding: 80px 0;
+}
+
+.founder .founder-container {
+  width: 80%;
+  margin: auto;
+}
+
+.founder .founder-container h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.founder .founder-container .contents {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.founder .founder-container .contents .content-item .content span {
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .founder .founder-container {
+    width: 90%;
+  }
+
+  .founder .founder-container .contents {
+    flex-direction: column;
+  }
 }

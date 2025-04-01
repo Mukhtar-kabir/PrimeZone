@@ -4,11 +4,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ListingItem from "../../Components/ListingItem/ListingItem";
 import { manualListings } from "../../data/ManualListings";
-import { FaTwitter } from "react-icons/fa";
-import { FaInstagramSquare } from "react-icons/fa";
-import { FaWhatsappSquare } from "react-icons/fa";
-import { FaFacebook } from "react-icons/fa";
-import { MdCategory } from "react-icons/md";
+import { MdUnfoldMore } from "react-icons/md";
 import { useLocation } from "react-router-dom";
 
 function PropertyPage() {
@@ -194,28 +190,28 @@ function PropertyPage() {
           <div className="right">
             <div className="links">
               <Link to="" className="link">
-                <FaTwitter />
+                <img src="/Images/twitter.png" alt="" />
               </Link>
 
               <Link
                 to="https://www.instagram.com/muhseen_estate_expert?igsh=eHphMGs5ZjRvczdq&utm_source=qr"
                 className="link"
               >
-                <FaInstagramSquare />
+                <img src="/Images/instagram.png" alt="" />
               </Link>
 
               <Link
                 to="https://www.facebook.com/share/165HC6dhtA/?mibextid=LQQJ4d"
                 className="link"
               >
-                <FaFacebook />
+                <img src="/Images/facebook.png" alt="" />
               </Link>
 
               <Link
                 to="https://api.whatsapp.com/send/?phone=%2B2347063447840&text&type=phone_number&app_absent=0"
                 className="link"
               >
-                <FaWhatsappSquare />
+                <img src="/Images/whatsapp.png" alt="" />
               </Link>
             </div>
 
@@ -240,7 +236,11 @@ function PropertyPage() {
       </footer>
 
       <div className="categories" onClick={toggleCategories}>
-        <MdCategory />
+        {/* <MdCategory /> */}
+        <div className="view">
+          <p>View Properties</p>
+          <MdUnfoldMore />
+        </div>
         {showCategories && (
           <ul className="category-list">
             <li>Land/plots</li>

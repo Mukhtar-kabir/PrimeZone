@@ -10,16 +10,7 @@ import ListingItem from "../../Components/ListingItem/ListingItem";
 import { IoIosHome } from "react-icons/io";
 import { FaHandshake } from "react-icons/fa";
 import { FaRegBuilding } from "react-icons/fa";
-import { FaAward } from "react-icons/fa";
-import { FaSackDollar } from "react-icons/fa6";
-import { FaLocationDot } from "react-icons/fa6";
-import { IoCallSharp } from "react-icons/io5";
-import { FaTwitter } from "react-icons/fa";
-import { FaInstagramSquare } from "react-icons/fa";
-import { FaWhatsappSquare } from "react-icons/fa";
-import { FaFacebook } from "react-icons/fa";
 import { MdUnfoldMore } from "react-icons/md";
-import { MdCategory } from "react-icons/md";
 import { useSelector } from "react-redux";
 
 const Home = () => {
@@ -288,7 +279,6 @@ const Home = () => {
           <div className="categories-hero">
             <div className="view">
               <button onClick={toggleCategoriesHome}>View Properties</button>
-              <MdUnfoldMore />
             </div>
             {showCategoriesHome && (
               <ul className="category-list">
@@ -405,49 +395,6 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="why-choose-us">
-        <div className="why-choose-us_container">
-          <h2>Why Choose Us</h2>
-          <div className="contents">
-            <div className="content">
-              <FaAward className="icon" />
-              <p>Trusted Real Estate Experts</p>
-              <span>
-                Our team of seasoned real estate professionals ensures reliable
-                guidance and expert advice for all your property needs.
-              </span>
-            </div>
-
-            <div className="content">
-              <FaSackDollar className="icon" />
-              <p>Flexible Payment Options</p>
-              <span>
-                We offer a variety of payment plans tailored to suit your budget
-                and financial preferences.
-              </span>
-            </div>
-
-            <div className="content">
-              <FaLocationDot className="icon" />
-              <p>Prime Locations</p>
-              <span>
-                Our properties are strategically situated in sought-after areas,
-                offering convenience and high investment value.
-              </span>
-            </div>
-
-            <div className="content">
-              <IoCallSharp className="icon" />
-              <p>24/7 Customer Support</p>
-              <span>
-                Our dedicated support team is available around the clock to
-                assist you with any inquiries or concerns.
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* <div className="inquiry">
         <div className="inquiry-form">
           <h2>Make an Inquiry?</h2>
@@ -511,7 +458,7 @@ const Home = () => {
         </div>
       </div> */}
 
-      <div className="locate">
+      {/* <div className="locate">
         <iframe
           width="100%"
           height="400"
@@ -519,7 +466,7 @@ const Home = () => {
         >
           <a href="https://www.gps.ie/collections/drones/">gps drone</a>
         </iframe>
-      </div>
+      </div> */}
 
       <footer>
         <div className="footer-container">
@@ -540,28 +487,28 @@ const Home = () => {
           <div className="right">
             <div className="links">
               <Link to="" className="link">
-                <FaTwitter />
+                <img src="/Images/twitter.png" alt="" />
               </Link>
 
               <Link
                 to="https://www.instagram.com/muhseen_estate_expert?igsh=eHphMGs5ZjRvczdq&utm_source=qr"
                 className="link"
               >
-                <FaInstagramSquare />
+                <img src="/Images/instagram.png" alt="" />
               </Link>
 
               <Link
                 to="https://www.facebook.com/share/165HC6dhtA/?mibextid=LQQJ4d"
                 className="link"
               >
-                <FaFacebook />
+                <img src="/Images/facebook.png" alt="" />
               </Link>
 
               <Link
                 to="https://api.whatsapp.com/send/?phone=%2B2347063447840&text&type=phone_number&app_absent=0"
                 className="link"
               >
-                <FaWhatsappSquare />
+                <img src="/Images/whatsapp.png" alt="" />
               </Link>
             </div>
 

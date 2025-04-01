@@ -403,11 +403,14 @@ footer .footer-container .left p {
 footer .footer-container .right .links {
   display: flex;
   justify-content: space-between;
+  gap: 1rem;
   margin-bottom: 1rem;
 }
 
-footer .footer-container .right .links .link {
-  color: #bdbdbd;
+footer .footer-container .right .links .link img {
+  width: 2rem;
+  height: 2rem;
+  object-fit: cover;
 }
 
 footer .footer-container .right .links .link:hover,
@@ -493,6 +496,11 @@ footer .contact-container h4 {
 
   footer .footer-container .left {
     width: 100%;
+  }
+
+  footer .footer-container .right .links .link img {
+    width: 1.5rem;
+    height: 1.5rem;
   }
 
   footer .footer-container .left h3 {
