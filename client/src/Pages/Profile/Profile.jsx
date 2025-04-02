@@ -13,7 +13,7 @@ import {
   signOutUserStart,
   signoutUserFailure,
 } from "../../redux/user/userSlice";
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  const BASE_URL = "https://prime-zone.vercel.app";
 
 const Profile = () => {
   const fileRef = useRef(null);
@@ -74,7 +74,7 @@ const Profile = () => {
 
     try {
       dispatch(updateUserStart());
-      const res = await fetch(`/api/user/update/${currentUser._id}`, {
+      const res = await fetch(`${BASE_URL}/api/user/update/${currentUser._id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -99,7 +99,7 @@ const Profile = () => {
     try {
       dispatch(deleteUserStart());
 
-      const res = await fetch(`/api/user/delete/${currentUser._id}`, {
+      const res = await fetch(`${BASE_URL}/api/user/delete/${currentUser._id}`, {
         method: "DELETE",
       });
       const data = await res.json();
@@ -136,7 +136,7 @@ const Profile = () => {
   const handleSignOut = async () => {
     try {
       dispatch(signOutUserStart());
-      const res = await fetch(`/api/auth/signout`, {
+      const res = await fetch(`${BASE_URL}/api/auth/signout`, {
         method: "GET",
         credentials: "include", // Ensures cookies are sent
       });
