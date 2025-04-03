@@ -11,6 +11,7 @@ import { IoIosHome } from "react-icons/io";
 import { FaHandshake } from "react-icons/fa";
 import { FaRegBuilding } from "react-icons/fa";
 import { MdUnfoldMore } from "react-icons/md";
+import { FaWhatsapp } from "react-icons/fa";
 import { useSelector } from "react-redux";
 
 const Home = () => {
