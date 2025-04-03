@@ -9,6 +9,8 @@ const SignUp = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  const BASE_URL = "https://prime-zone.vercel.app";
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -20,7 +22,7 @@ const SignUp = () => {
     e.preventDefault();
     try {
       setLoading(true);
-      const res = await fetch("/api/auth/signup", {
+      const res = await fetch(`${BASE_URL}/api/auth/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
