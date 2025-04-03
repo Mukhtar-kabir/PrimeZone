@@ -413,6 +413,7 @@ const Home = () => {
             Join Now
           </a>
         </div>
+      </div>
 
       {/* <div className="inquiry">
         <div className="inquiry-form">
