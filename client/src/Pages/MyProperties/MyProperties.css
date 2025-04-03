@@ -1,0 +1,83 @@
+/* MyProperties.css */
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  /* padding: 20px; */
+  padding: 100px 0;
+  font-family: Arial, sans-serif;
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.no-properties {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #777;
+}
+
+.properties-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.property-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s;
+}
+
+.property-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-content {
+  text-align: left;
+}
+
+.property-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+.payment-status {
+  font-weight: bold;
+}
+
+.paid {
+  color: green;
+}
+
+.unpaid {
+  color: red;
+}
+
+.details-button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.details-button:hover {
+  background-color: #0056b3;
+}

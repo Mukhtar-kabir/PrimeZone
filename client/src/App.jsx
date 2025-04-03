@@ -16,6 +16,11 @@ import UpdateListing from "./Pages/UpdateListing/UpdateListing";
 import Search from "./Pages/Search/Search";
 import PropertyPage from "./Pages/PropertyPage/PropertyPage";
 import ManualListingsDetails from "./Pages/ManualListingsDetails/ManualListingsDetails";
+import Dashboard from "./Pages/Dashboard/Dashboard";
+import MyProperties from "./Pages/MyProperties/MyProperties";
+import PaymentHistory from "./Pages/PaymentHistory/PaymentHistory";
+import PendingPayments from "./Pages/PendingPayments/PendingPayments";
+import SupportInquiries from "./Pages/SupportInquiries/SupportInquiries";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -44,6 +49,11 @@ const App = () => {
             <Route path="/search" element={<Search />} />
             <Route element={<PrivateRoute />}>
               <Route path="/profile" element={<Profile />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/my-properties" element={<MyProperties />} />
+              <Route path="/payment-history" element={<PaymentHistory />} />
+              <Route path="/pending-payments" element={<PendingPayments />} />
+              <Route path="/support-inquiries" element={<SupportInquiries />} />
               <Route
                 path="/update-listing/:listingId"
                 element={<UpdateListing />}

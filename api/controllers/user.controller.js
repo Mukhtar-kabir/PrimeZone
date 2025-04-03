@@ -14,7 +14,7 @@ export const UpdateUser = async (req, res, next) => {
     return next(errorHandler(401, "You can only update your own account!"));
 
   try {
-    if (req.body.passwor) {
+    if (req.body.password) {
       req.body.password = bcryptjs.hashSync(req.body.password, 10);
     }
 
@@ -55,18 +55,55 @@ export const deleteUser = async (req, res, next) => {
   }
 };
 
-// export const getUserListings = async (req, res, next) => {
-//   if (req.user.id === req.params.id) {
-//     try {
-//       const listings = await Listing.find({ userRef: req.params.id });
-//       res.status(200).json({ success: true, listings });
-//     } catch (error) {
-//       next(error);
-//     }
-//   } else {
-//     return next(errorHandler(401, "You can only view your own listings!"));
-//   }
-// };
+export const addProperty = async (req, res, next) => {
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) return next(errorHandler(404, "User not found"));
+
+    const newProperty = {
+      name: req.body.username,
+      location: req.body.location,
+      plotSize: req.body.plotSize,
+      type: req.body.type,
+      price: req.body.price,
+      paymentStatus: req.body.paymentStatus,
+    };
+
+    user.properties.push(newProperty);
+    await user.save();
+    res.status(200).json({ success: true, user });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const addPayment = async (req, res, next) => {
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) return next(errorHandler(404, "User not found"));
+
+    const newPayment = {
+      amount: req.body.amount,
+      date: new Date(),
+      status: req.body.status,
+      receiptUrl: req.body.receiptUrl,
+    };
+
+    user.paymentHistory.push(newPayment);
+    if (newPayment.status === "Paid") {
+      // Update the user's property payment status if the payment was successful
+      user.properties.forEach((property) => {
+        if (property.paymentStatus === "Installments Remaining") {
+          property.paymentStatus = "Paid";
+        }
+      });
+    }
+    await user.save();
+    res.status(200).json({ success: true, user });
+  } catch (error) {
+    next(error);
+  }
+};
 
 export const getUser = async (req, res, next) => {
   try {

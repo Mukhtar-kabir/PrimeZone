@@ -11,6 +11,7 @@ import { IoIosHome } from "react-icons/io";
 import { FaHandshake } from "react-icons/fa";
 import { FaRegBuilding } from "react-icons/fa";
 import { MdUnfoldMore } from "react-icons/md";
+import { FaWhatsapp } from "react-icons/fa";
 import { useSelector } from "react-redux";
 
 const Home = () => {
@@ -392,6 +393,26 @@ const Home = () => {
             <FaRegBuilding className="icon build" />
             <p>{counts.propertiesAvailable} Properties Available</p>
           </div>
+        </div>
+      </div>
+
+      <div className="whatsapp-community">
+        <div className="container">
+          <h2>Join Our WhatsApp Community</h2>
+          <p>
+            {" "}
+            Stay updated with the latest news, offers, and discussions. Connect
+            with like-minded individuals in our community.
+          </p>
+          <a
+            href="https://chat.whatsapp.com/HgZ501WFsHWLIse0szho7C"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="join-btn"
+          >
+            <FaWhatsapp className="whatsapp-icon" />
+            Join Now
+          </a>
         </div>
       </div>
 

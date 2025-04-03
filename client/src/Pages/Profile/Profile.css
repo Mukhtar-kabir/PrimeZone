@@ -54,22 +54,22 @@
   background: #191949;
 }
 
-.profile form .listing {
-  text-decoration: none;
+.profile form a {
   width: 60%;
-  border: none;
-  background: #2c922c;
-  color: #fafafa;
-  padding: 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  text-transform: uppercase;
   text-align: center;
-  font-family: sans-serif;
+  text-decoration: none;
+  text-transform: uppercase;
+  background: #2c922c;
+  padding: 0.8rem;
+  border-radius: 5px;
 }
 
-.profile form .listing:hover {
-  background: #39b939;
+.profile form a p {
+  color: #fafafa;
+}
+
+.profile form a:hover {
+  background: #2f882f;
 }
 
 .profile form .items {
@@ -98,38 +98,6 @@
   color: #2c922c;
   text-align: center;
   font-family: sans-serif;
-}
-
-.profile .show-listings {
-  display: flex;
-  align-items: center;
-  margin: auto;
-  background: none;
-  color: #2c922c;
-  text-decoration: underline;
-  border: none;
-  padding: 0.5rem;
-  cursor: pointer;
-}
-
-.profile .listing-showing {
-  display: flex;
-  border-bottom: 1px solid #bebebe;
-  width: 50%;
-  margin: auto;
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem;
-}
-
-.profile .listing-showing img {
-  width: 5rem;
-  height: 5rem;
-  object-fit: cover;
-  border-radius: 0;
-  margin: 0;
 }
 
 .profile .listing-showing .listing-showing_button {
@@ -186,16 +154,7 @@
     font-size: 0.8rem;
   }
 
-  .profile .show-listings {
-    flex-direction: column;
-  }
-
-  .profile .listing-showing {
-    width: 90%;
-  }
-
-  .profile .listing-showing img {
-    width: 4rem;
-    height: 4rem;
+  .profile form a {
+    width: 100%;
   }
 }

@@ -6,6 +6,7 @@ import {
   signInStart,
   signInSuccess,
   signInFailure,
+  fetchUserData,
 } from "../../redux/user/userSlice.js";
 import OAuth from "../../Components/OAuth/OAuth.jsx";
 
@@ -26,21 +27,33 @@ const SignIn = () => {
     e.preventDefault();
     try {
       dispatch(signInStart());
-      const res = await fetch("/api/auth/signin", {
+      const res = await fetch(`/api/auth/signin`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
+
       const data = await res.json();
-      if (data.success === false) {
-        dispatch(signInFailure(data.message));
+      // console.log("API Response:", data);
+
+      if (!res.ok || data.success === false) {
+        dispatch(signInFailure(data.message || "Sign-in failed"));
         return;
       }
-      dispatch(signInSuccess(data));
-      navigate("/");
+
+      if (data.user && data.user._id) {
+        dispatch(signInSuccess(data.user));
+        // console.log("User ID:", data.user._id);
+
+        dispatch(fetchUserData(data.user._id));
+        navigate("/dashboard");
+      } else {
+        dispatch(signInFailure("User data is incomplete or missing."));
+      }
     } catch (error) {
+      console.error("Error during sign-in:", error);
       dispatch(signInFailure(error.message));
     }
   };

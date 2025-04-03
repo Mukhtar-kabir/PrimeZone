@@ -1,0 +1,58 @@
+.container {
+  /* padding: 20px; */
+  padding: 100px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.no-payments {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.payments-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.payments-table table {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.payments-table th,
+.payments-table td {
+  padding: 12px;
+  text-align: center;
+}
+
+.payments-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.paid {
+  color: green;
+}
+
+.unpaid {
+  color: red;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

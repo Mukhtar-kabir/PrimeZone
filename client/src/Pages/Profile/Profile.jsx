@@ -13,7 +13,6 @@ import {
   signOutUserStart,
   signoutUserFailure,
 } from "../../redux/user/userSlice";
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const Profile = () => {
   const fileRef = useRef(null);
@@ -245,6 +244,10 @@ const Profile = () => {
           {loading ? "Loading..." : "Update"}
         </button>
 
+        <a href="/dashboard">
+          <p>Dashboard</p>
+        </a>
+
         {/* <Link to={"/create-listing"} className="listing">
           Create Listing
         </Link> */}
@@ -259,10 +262,6 @@ const Profile = () => {
       <p className="success">
         {updateSuccess ? "User is updated successfully!" : ""}
       </p>
-      {/* <button onClick={handleShowListings} className="show-listings">
-        Show Listings
-      </button>
-      <p>{showListingsError ? "Error showing listings" : ""}</p> */}
 
       {userListings && userListings.length > 0 && (
         <div className="">
