@@ -395,6 +395,25 @@ const Home = () => {
         </div>
       </div>
 
+      <div className="whatsapp-community">
+        <div className="container">
+          <h2>Join Our WhatsApp Community</h2>
+          <p>
+            {" "}
+            Stay updated with the latest news, offers, and discussions. Connect
+            with like-minded individuals in our community.
+          </p>
+          <a
+            href="https://chat.whatsapp.com/HgZ501WFsHWLIse0szho7C"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="join-btn"
+          >
+            <FaWhatsapp className="whatsapp-icon" />
+            Join Now
+          </a>
+        </div>
+
       {/* <div className="inquiry">
         <div className="inquiry-form">
           <h2>Make an Inquiry?</h2>
