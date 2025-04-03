@@ -398,11 +398,11 @@ const Home = () => {
 
       <div className="whatsapp-community">
         <div className="container">
-          <h2>Join Our WhatsApp Community</h2>
+          <h2>Join our VIP WhatsApp community</h2>
           <p>
             {" "}
-            Stay updated with the latest news, offers, and discussions. Connect
-            with like-minded individuals in our community.
+            Early Access to New Projects, VIP-Only Discounts, Exclusive distress
+            sales and Cashback for Referrals.
           </p>
           <a
             href="https://chat.whatsapp.com/HgZ501WFsHWLIse0szho7C"
