@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ListingItem from "../../Components/ListingItem/ListingItem";
 import { manualListings } from "../../data/ManualListings";
+import { useLocation } from "react-router-dom";
 
 function Search() {
   const navigate = useNavigate();
@@ -18,6 +19,23 @@ function Search() {
   });
 
   const [listings, setListings] = useState([]);
+  const [showMore, setShowMore] = useState(true);
+
+  const location = useLocation();
+  const urlParams = new URLSearchParams(location.search);
+  const searchTerm = urlParams.get("searchTerm") || "";
+
+  const [displayCount, setDisplayCount] = useState(9);
+
+  const filteredListings = manualListings.filter(
+    (listing) =>
+      listing.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      listing.address.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const handleShowMore = () => {
+    setDisplayCount((prev) => prev + 9); // Load 9 more properties on click
+  };
 
   useEffect(() => {
     filterListings(sidebardata.searchTerm, sidebardata.type);
@@ -192,14 +210,22 @@ function Search() {
       <div className="listing">
         <h1>Listing results:</h1>
         <div className="listing-items">
-          {listings.length === 0 ? (
-            <p>No listing found!</p>
+          {filteredListings.length === 0 ? (
+            <p>No properties found matching your search.</p>
           ) : (
-            listings.map((listing) => (
-              <ListingItem key={listing._id} listing={listing} />
-            ))
+            filteredListings
+              .slice(0, displayCount)
+              .map((listing) => (
+                <ListingItem key={listing._id} listing={listing} />
+              ))
           )}
         </div>
+
+        {displayCount < filteredListings.length && (
+          <button onClick={handleShowMore} className="show-more-btn">
+            Show More
+          </button>
+        )}
       </div>
 
       {/* <div className="listing">

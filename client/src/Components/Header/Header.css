@@ -39,6 +39,7 @@ header .center button {
   background: none;
   border: none;
   cursor: pointer;
+  color: gold;
 }
 
 header .items .left .link {

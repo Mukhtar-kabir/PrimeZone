@@ -43,8 +43,8 @@
 
 .search .filters .button {
   border: none;
-  background: #04042c;
-  color: #fafafa;
+  background: gold;
+  color: #04042c;
   padding: 1rem;
   width: 100%;
   border-radius: 5px;
@@ -53,7 +53,8 @@
 }
 
 .search .filters .button:hover {
-  background: #494992;
+  background: goldenrod;
+  color: #fafafa;
 }
 
 .search .listing {
@@ -73,20 +74,20 @@
   gap: 3rem;
 }
 
-.listing .showMore {
-  background: #04042c;
+.listing .show-more-btn {
   border: none;
-  color: #fafafa;
   padding: 0.8rem;
-  border-radius: 5px;
+  border-radius: 10px;
+  background: gold;
+  color: #424242;
+  padding: 0.5rem 1rem;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-top: 1rem;
 }
 
-.listing .showMore:hover {
-  background: #292968;
+.listing .show-more-btn:hover {
+  background: goldenrod;
+  color: #fafafa;
 }
 
 @media (max-width: 900px) {
@@ -106,5 +107,6 @@
 
   .search .listing-items {
     grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
   }
 }

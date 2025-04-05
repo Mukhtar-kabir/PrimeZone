@@ -33,8 +33,8 @@
 }
 
 .hero button {
-  background: #04042c;
-  color: #fafafa;
+  background: gold;
+  color: #424242;
   padding: 1rem 1.5rem;
   border: none;
   border-radius: 5px;
@@ -62,7 +62,8 @@
 }
 
 .hero button:hover {
-  background: #1e1e50;
+  background: goldenrod;
+  color: #fafafa;
 }
 
 @media (max-width: 900px) {
@@ -152,6 +153,8 @@
 
 .properties {
   line-height: 2;
+  background: #04042c;
+  color: #fafafa;
 }
 
 .properties .default {
@@ -421,11 +424,11 @@
 
 @media (max-width: 900px) {
   .whatsapp-community h2 {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 
   .whatsapp-community p {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 }
 
@@ -501,7 +504,7 @@ footer .contact-container h4 {
   z-index: 10;
   right: 2rem;
   bottom: 2rem;
-  background: #ffff;
+  background: gold;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -509,12 +512,15 @@ footer .contact-container h4 {
   padding: 5px;
   font-size: 0.8rem;
   cursor: pointer;
-  color: #04042c;
 }
 
 .categories .view {
   display: flex;
   align-items: center;
+}
+
+.categories .view p {
+  color: #04042c;
 }
 
 .categories:hover {
@@ -528,7 +534,7 @@ footer .contact-container h4 {
   border-radius: 5px;
   list-style: none;
   padding: 10px;
-  bottom: 2rem;
+  bottom: 3rem;
   width: 15rem;
   /* margin: 0; */
   display: flex;
@@ -579,10 +585,14 @@ footer .contact-container h4 {
   .categories {
     padding: 7px;
     right: 1rem;
-    box-shadow: 2px 2px 2px 2px #b5b5d6;
+    /* box-shadow: 2px 2px 2px 2px #b5b5d6; */
   }
 
   .categories-hero .category-list {
     top: 20rem;
+  }
+
+  .categories .category-list {
+    bottom: 3rem;
   }
 }

@@ -49,14 +49,15 @@
   border: none;
   padding: 0.8rem;
   border-radius: 10px;
-  background: #04042c;
-  color: #fafafa;
+  background: gold;
+  color: #424242;
   padding: 0.5rem 1rem;
   cursor: pointer;
 }
 
 .properties .content .show-more-btn:hover {
-  background: #494992;
+  background: goldenrod;
+  color: #fafafa;
 }
 
 @media (max-width: 900px) {

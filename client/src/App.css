@@ -18,8 +18,8 @@
   position: relative;
   background-image: linear-gradient(#fff 16px, transparent 0),
     linear-gradient(#04042c 16px, transparent 0),
-    linear-gradient(#04042c 16px, transparent 0),
-    linear-gradient(#fff 16px, transparent 0);
+    linear-gradient(gold 16px, transparent 0),
+    linear-gradient(#ffff 16px, transparent 0);
   background-repeat: no-repeat;
   background-size: 16px 16px;
   background-position: left top, left bottom, right top, right bottom;

@@ -73,8 +73,8 @@
 }
 
 .manual-listing .listings button {
-  background: #4f448b;
-  color: #fafafa;
+  background: gold;
+  color: #04042c;
   border: none;
   padding: 1rem;
   text-align: center;
@@ -86,7 +86,8 @@
 }
 
 .manual-listing .listings button:hover {
-  background: #5f5594;
+  background: goldenrod;
+  color: #fafafa;
 }
 
 @media (max-width: 900px) {

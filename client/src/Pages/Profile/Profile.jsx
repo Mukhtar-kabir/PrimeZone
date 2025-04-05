@@ -19,6 +19,7 @@ const BASE_URL = "https://prime-zone.vercel.app";
 const Profile = () => {
   const fileRef = useRef(null);
   const { currentUser, loading, error } = useSelector((state) => state.user);
+  const [errorMessage, SetErrorMessage] = useState(false);
   const dispatch = useDispatch();
   const [file, setFile] = useState(null);
   const [avatarUrl, setAvatarUrl] = useState(currentUser.avatar);
@@ -89,6 +90,7 @@ const Profile = () => {
       const data = await res.json();
       if (data.success === false) {
         dispatch(updateUserFailure(data.message));
+        SetErrorMessage(false);
         return;
       }
 
@@ -221,7 +223,7 @@ const Profile = () => {
         </div>
       </form>
 
-      <p className="error">{error ? "Fialed to Update" : ""}</p>
+      <p className="error">{errorMessage ? "Fialed to Update" : ""}</p>
       <p className="success">
         {updateSuccess ? "User is updated successfully!" : ""}
       </p>
