@@ -204,6 +204,13 @@ const Profile = () => {
           id="email"
           onChange={handleChange}
         />
+        <input
+          defaultValue={currentUser.phoneNumber}
+          type="number"
+          placeholder="phone number"
+          id="number"
+          onChange={handleChange}
+        />
         <input type="password" placeholder="password" id="password" />
         <button disabled={loading} className="disabled">
           {loading ? "Loading..." : "Update"}

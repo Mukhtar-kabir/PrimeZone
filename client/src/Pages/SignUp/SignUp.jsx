@@ -17,6 +17,7 @@ const SignUp = () => {
       [e.target.id]: e.target.value,
     });
   };
+  console.log(formData);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -60,6 +61,18 @@ const SignUp = () => {
           type="email"
           placeholder="email"
           id="email"
+          onChange={handleChange}
+        />
+        <input
+          type="number"
+          placeholder="phone number"
+          id="phoneNumber"
+          onChange={handleChange}
+        />
+        <input
+          type="date"
+          placeholder="date of birth"
+          id="dateOfBirth"
           onChange={handleChange}
         />
         <input

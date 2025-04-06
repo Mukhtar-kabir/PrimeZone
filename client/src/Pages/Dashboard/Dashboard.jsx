@@ -69,6 +69,8 @@ import { fetchUserData } from "../../redux/user/userSlice"; // Action to fetch u
 function Dashboard() {
   const { currentUser, properties, paymentHistory, pendingPayments } =
     useSelector((state) => state.user);
+  console.log("Current User:", currentUser);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -84,7 +86,14 @@ function Dashboard() {
           <img src={currentUser?.avatar} alt="avatar" />
           <div className="status">
             <h1>Welcome, {currentUser?.username || "Customer"}!</h1>
-            {/* <p>Your current status:</p> */}
+            <div className="parag">
+              <p>
+                <span>Email:</span> {currentUser?.email || "Customer"}
+              </p>
+              <p>
+                <span>Phone Number:</span> {currentUser?.phoneNumber || "N/A"}
+              </p>
+            </div>
           </div>
           {/* <div className="summary">
             <div className="summary-item">

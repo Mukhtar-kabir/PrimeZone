@@ -61,9 +61,20 @@ const UserSchema = new mongoose.Schema(
       unique: true,
     },
 
+    phoneNumber: {
+      type: String,
+      require: true,
+      match: [/^0\d{10}$/, "Please enter a valid Nigerian phone number"],
+    },
+
     password: {
       type: String,
       require: true,
+    },
+
+    dateOfBirth: {
+      type: Date,
+      required: true,
     },
 
     avatar: {
