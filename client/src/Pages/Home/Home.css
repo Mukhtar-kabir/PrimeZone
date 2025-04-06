@@ -153,7 +153,7 @@
 
 .properties {
   line-height: 2;
-  background: #04042c;
+  background: #28287a;
   color: #fafafa;
 }
 
@@ -250,7 +250,7 @@
 
 .why-choose-us {
   padding: 90px 0;
-  background: #04042c;
+  background: #28287a;
   color: #fafafa;
 }
 
@@ -279,6 +279,7 @@
 
 .why-choose-us .why-choose-us_container .contents .content p {
   margin-bottom: 1rem;
+  color: #fff;
 }
 
 .why-choose-us .why-choose-us_container .contents .content span {
@@ -424,18 +425,18 @@
 
 @media (max-width: 900px) {
   .whatsapp-community h2 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 
   .whatsapp-community p {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 }
 
 /* Footer */
 
 footer {
-  background: #04042c;
+  background: #28287a;
   color: #fafafa;
   padding: 100px 0;
 }
@@ -460,6 +461,7 @@ footer .footer-container .left p {
   margin-bottom: 2rem;
   opacity: 0.6;
   line-height: 1.8;
+  color: #fff;
 }
 
 footer .footer-container .right .links {
@@ -482,7 +484,7 @@ footer .footer-container .right .terms:hover {
 
 footer .footer-container .right .terms {
   text-decoration: none;
-  color: #bdbdbd;
+  color: #fff;
 }
 
 footer .contact-container {
@@ -497,6 +499,11 @@ footer .contact-container {
 
 footer .contact-container h4 {
   margin-bottom: 0.8rem;
+  color: #fff;
+}
+
+footer .contact-container p {
+  color: #d1d1d1;
 }
 
 .categories {
