@@ -21,6 +21,10 @@
   gap: 0.5rem;
 }
 
+.search .filters .search-input input {
+  width: 60%;
+}
+
 .search .filters .search-input input,
 .search .filters .search-input select {
   border: none;
@@ -32,13 +36,16 @@
 .search .filters .filters-items {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
   margin-bottom: 1.3rem;
 }
 
 .search .filters .filters-items .item {
   display: flex;
-  gap: 0.5rem;
+  align-items: center;
+}
+
+.search .filters .filters-items .item input {
+  width: 2rem;
 }
 
 .search .filters .button {

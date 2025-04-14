@@ -6,6 +6,7 @@ export const fetchUserData = createAsyncThunk(
     try {
       const response = await fetch(`/api/users/${userId}`);
       const data = await response.json();
+      // console.log("Fetched User Data:", data);
 
       if (!response.ok) {
         throw new Error(data.message || "Failed to fetch user data");
@@ -93,14 +94,35 @@ const userSlice = createSlice({
 
   extraReducers: (builder) => {
     // Handle user data fetch success
+    // builder.addCase(fetchUserData.fulfilled, (state, action) => {
+    //   const { properties, paymentHistory, pendingPayments } = action.payload;
+    //   state.properties = properties || [];
+    //   state.paymentHistory = paymentHistory || [];
+    //   state.pendingPayments = pendingPayments || [];
+    // });
+
+    // Handle user data fetch failure
+    // builder.addCase(fetchUserData.rejected, (state, action) => {
+    //   state.error = action.payload;
+    //   state.loading = false;
+    // });
+
     builder.addCase(fetchUserData.fulfilled, (state, action) => {
-      const { properties, paymentHistory, pendingPayments } = action.payload;
+      const { properties, paymentHistory, pendingPayments, ...userInfo } =
+        action.payload;
+
+      state.currentUser = userInfo; // ⬅️ this is the fix
       state.properties = properties || [];
       state.paymentHistory = paymentHistory || [];
       state.pendingPayments = pendingPayments || [];
+      state.loading = false;
+      state.error = null;
     });
 
-    // Handle user data fetch failure
+    builder.addCase(fetchUserData.pending, (state) => {
+      state.loading = true;
+    });
+
     builder.addCase(fetchUserData.rejected, (state, action) => {
       state.error = action.payload;
       state.loading = false;

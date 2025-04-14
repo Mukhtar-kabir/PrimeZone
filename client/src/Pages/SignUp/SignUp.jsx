@@ -17,13 +17,12 @@ const SignUp = () => {
       [e.target.id]: e.target.value,
     });
   };
-  console.log(formData);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       setLoading(true);
-      const res = await fetch(`${BASE_URL}/api/auth/signup`, {
+      const res = await fetch(`/api/auth/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -67,12 +66,6 @@ const SignUp = () => {
           type="number"
           placeholder="phone number"
           id="phoneNumber"
-          onChange={handleChange}
-        />
-        <input
-          type="date"
-          placeholder="date of birth"
-          id="dateOfBirth"
           onChange={handleChange}
         />
         <input

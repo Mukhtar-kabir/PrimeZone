@@ -1,0 +1,43 @@
+.admin-dashboard {
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.admin-dashboard h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.admin-dashboard p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.admin-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.admin-actions button {
+  padding: 12px 20px;
+  font-size: 16px;
+  background-color: #0077ff;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.admin-actions button:hover {
+  background-color: #005fcc;
+}

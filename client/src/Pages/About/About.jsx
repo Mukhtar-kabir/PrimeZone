@@ -21,7 +21,7 @@ const About = () => {
       <div className="about">
         <div className="why-choose-us">
           <div className="why-choose-us_container">
-            <h2>Why Choose Us</h2>
+            <h2 style={{ color: "white" }}>Why Choose Us</h2>
             <div className="contents">
               <div className="content">
                 <FaAward className="icon" />
@@ -58,51 +58,6 @@ const About = () => {
                   Our dedicated support team is available around the clock to
                   assist you with any inquiries or concerns.
                 </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="founder">
-        <div className="founder-container">
-          <h2>Meet the Founders</h2>
-
-          <div className="contents">
-            <div className="content-item">
-              {/* <img src="/Images/twitter.png" alt="" /> */}
-              <div className="content">
-                <p>
-                  <span>Muhsin</span>, popularly known as 'Muhseen Estate
-                  Expert,' isn`t just selling plots, he’s revolutionizing Kano’s
-                  real estate with a simple belief: every family deserves land
-                  ownership without financial strain. In just 8 months, his
-                  innovative flexible payment plans have empowered 100+ families
-                  and investors to secure their dream plots across Kano’s prime
-                  estates. A tech-savvy entrepreneur, Muhseen was Nigeria’s 1st
-                  Agrohack competition winner 2023 (EDC & Mastercard Foundation)
-                  and also a winner in the Agrichacking Challenge (BUK & World
-                  Bank). His mission? To eliminate scams, simplify ownership,
-                  and build generational wealth for Kano’s residents.{" "}
-                </p>
-              </div>
-            </div>
-
-            <div className="content-item">
-              {/* <img src="/Images/twitter.png" alt="" /> */}
-              <div className="content">
-                <p>
-                  <span>Anwar</span> brings a deep understanding of land,
-                  location, and development trends to real estate. With a
-                  Geography degree from Federal University Dutsin-Ma, he
-                  combines spatial expertise with strategic planning to help
-                  clients secure the best properties. As General Manager, he
-                  plays a key role in property sourcing, market analysis, and
-                  ensuring smooth transactions. His knowledge of Kano’s real
-                  estate landscape helps bridge the gap between investors,
-                  developers, and homebuyers, ensuring every deal is built on
-                  trust, value, and long-term potential.
-                </p>
               </div>
             </div>
           </div>
@@ -154,7 +109,7 @@ const About = () => {
             </div>
 
             <Link to="" className="terms">
-              <h4>Terms & Privacy Policy</h4>
+              <h4 style={{ color: "white" }}>Terms & Privacy Policy</h4>
             </Link>
           </div>
         </div>

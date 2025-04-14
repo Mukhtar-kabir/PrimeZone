@@ -59,7 +59,7 @@ const Contact = () => {
             </div>
 
             <Link to="" className="terms">
-              <h4>Terms & Privacy Policy</h4>
+              <h4 style={{ color: "white" }}>Terms & Privacy Policy</h4>
             </Link>
           </div>
         </div>

@@ -1,0 +1,230 @@
+/* General Container Styles */
+
+.propertDetails {
+  background-color: #28287a;
+  min-height: 100vh;
+  padding: 20px;
+  color: white;
+}
+
+.property-detail-container {
+  max-width: 900px;
+  margin: 20px auto;
+  /* padding: 20px; */
+  padding: 100px 0;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 4rem;
+}
+
+.property-detail-container h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.property-detail-container p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.property-detail-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+strong {
+  color: #333;
+  font-weight: bold;
+}
+
+/* Heading for sections like Documents, Payment Receipt */
+.property-detail-container h3 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/* Links Styles */
+.property-detail-container a {
+  color: #3498db;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.property-detail-container a:hover {
+  text-decoration: underline;
+}
+
+.property-detail-container .documents {
+  margin-top: 20px;
+}
+
+/* Document Items */
+.property-detail-container .documents div {
+  margin-bottom: 15px;
+  background-color: #f1f1f1;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.property-detail-container .documents p {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #2c3e50;
+}
+
+.property-detail-container .documents a {
+  margin-top: 10px;
+  display: inline-block;
+  padding: 8px 15px;
+  background-color: #3498db;
+  color: white;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.property-detail-container .documents a:hover {
+  background-color: #2980b9;
+}
+
+/* Payment Status Section */
+.payment-status {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  color: #2ecc71;
+}
+
+.payment-status p {
+  font-weight: bold;
+  color: #27ae60;
+}
+
+/* Loading State */
+.property-detail-container .loading {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #e74c3c;
+}
+
+.status.paid {
+  color: green;
+}
+
+.status.unpaid {
+  color: red;
+}
+
+/* PropertyDetails.css */
+.download-receipt-button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.download-receipt-button:hover {
+  background-color: #45a049;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Mobile (up to 480px) */
+@media (max-width: 480px) {
+  .property-detail-container {
+    padding: 15px;
+  }
+
+  .property-detail-container h2 {
+    font-size: 1.8rem;
+  }
+
+  .property-detail-container p,
+  .property-detail-container h3 {
+    font-size: 1rem;
+  }
+
+  .property-detail-container .documents p {
+    font-size: 1rem;
+  }
+
+  .property-detail-container .documents a {
+    padding: 8px 12px;
+  }
+
+  .property-detail-container img {
+    max-width: 100%;
+    margin-bottom: 15px;
+  }
+}
+
+/* Tablet (up to 768px) */
+@media (max-width: 768px) {
+  .property-detail-container {
+    padding: 20px;
+  }
+
+  .property-detail-container h2 {
+    font-size: 2rem;
+  }
+
+  .property-detail-container p,
+  .property-detail-container h3 {
+    font-size: 1.1rem;
+  }
+
+  .property-detail-container .documents p {
+    font-size: 1.1rem;
+  }
+
+  .property-detail-container .documents a {
+    padding: 8px 15px;
+  }
+
+  .property-detail-container img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+}
+
+/* Desktop (over 768px) */
+@media (min-width: 769px) {
+  .property-detail-container {
+    padding: 30px;
+  }
+
+  .property-detail-container h2 {
+    font-size: 2.5rem;
+  }
+
+  .property-detail-container p,
+  .property-detail-container h3 {
+    font-size: 1.2rem;
+  }
+
+  .property-detail-container .documents p {
+    font-size: 1.2rem;
+  }
+
+  .property-detail-container .documents a {
+    padding: 10px 20px;
+  }
+
+  .property-detail-container img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+  }
+}

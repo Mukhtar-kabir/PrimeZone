@@ -21,6 +21,14 @@ import MyProperties from "./Pages/MyProperties/MyProperties";
 import PaymentHistory from "./Pages/PaymentHistory/PaymentHistory";
 import PendingPayments from "./Pages/PendingPayments/PendingPayments";
 import SupportInquiries from "./Pages/SupportInquiries/SupportInquiries";
+import { AdminRoute } from "./Components/PrivateRoute/AdminRoute";
+import AdminAssignProperty from "./Pages/AdminAssignProperty/AdminAssignProperty";
+import Unauthorized from "./Pages/Unauthorized/Unauthorized";
+import PropertyDetails from "./Pages/PropertyDetails/PropertyDetails";
+import LuxuryHomes from "./Pages/LuxuryHomes/LuxuryHomes";
+import DistressProperties from "./Pages/DistressProperties/DistressProperties";
+import AdminDashboard from "./Pages/AdminDashboard/AdminDashboard";
+import AdminCreateUser from "./Pages/AdminCreateUser/AdminCreateUser";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -59,6 +67,14 @@ const App = () => {
                 element={<UpdateListing />}
               />
             </Route>
+            <Route element={<AdminRoute />}>
+              <Route
+                path="/assign-property"
+                element={<AdminAssignProperty />}
+              />
+            </Route>
+            <Route path="/unauthorized" element={<Unauthorized />} />
+
             <Route path="/contact" element={<Contact />} />
             <Route path="/listing/:listingId" element={<Properties />} />
             <Route
@@ -66,6 +82,15 @@ const App = () => {
               element={<ManualListingsDetails />}
             />
             <Route path="/property-page" element={<PropertyPage />} />
+            <Route path="/property/:propertyId" element={<PropertyDetails />} />
+            <Route path="/luxury-homes" element={<LuxuryHomes />} />
+            <Route
+              path="/distress-properties"
+              element={<DistressProperties />}
+            />
+            <Route path="/my-properties" element={<MyProperties />} />
+            <Route path="/admin-dashboard" element={<AdminDashboard />} />
+            <Route path="/admin/create-user" element={<AdminCreateUser />} />
           </Routes>
         </>
       )}

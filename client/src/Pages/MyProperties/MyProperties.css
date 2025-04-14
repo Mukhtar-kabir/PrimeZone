@@ -1,83 +1,138 @@
-/* MyProperties.css */
+/* Card and general styling */
 
-.container {
-  max-width: 1200px;
-  margin: auto;
-  /* padding: 20px; */
-  padding: 100px 0;
-  font-family: Arial, sans-serif;
-}
-
-.title {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.no-properties {
-  text-align: center;
-  font-size: 1.2rem;
-  color: #777;
-}
-
-.properties-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+.myProperty {
+  background-color: #28287a;
+  min-height: 100vh;
+  padding: 20px;
+  color: white;
 }
 
 .property-card {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  transition: transform 0.3s;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease-in-out;
 }
 
-.property-card:hover {
-  transform: translateY(-5px);
+.property-card .link {
+  text-decoration: none;
+}
+
+.property-thumbnail {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .card-content {
-  text-align: left;
+  margin-top: 10px;
 }
 
-.property-title {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: #444;
+.card-content h2 {
+  font-size: 1.3rem;
 }
 
-p {
-  margin: 5px 0;
-  font-size: 1rem;
-  color: #555;
+.card-content p {
+  color: #424242;
+  line-height: 1.5;
 }
 
 .payment-status {
   font-weight: bold;
 }
 
-.paid {
+.payment-status.paid {
   color: green;
 }
 
-.unpaid {
+.payment-status.unpaid {
   color: red;
 }
 
-.details-button {
-  margin-top: 10px;
-  padding: 10px 15px;
+/* Toggle Button */
+.payment-history-toggle {
+  margin-top: 15px;
+}
+
+.toggle-button {
   background-color: #007bff;
   color: white;
+  padding: 10px 15px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
-.details-button:hover {
+.toggle-button:hover {
   background-color: #0056b3;
+}
+
+/* Payment History */
+.payment-history {
+  margin-top: 10px;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 8px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.payment-history ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.payment-history li {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+.payment-history h4 {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.card-content,
+.payment-history {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Grid layout for properties */
+.properties-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(280px, 1fr)
+  ); /* Responsive grid */
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .property-card {
+    padding: 12px;
+  }
+
+  .property-thumbnail {
+    height: 180px;
+  }
+
+  .card-content {
+    margin-top: 5px;
+  }
+
+  .card-content h2 {
+    font-size: 1rem;
+  }
+
+  .payment-history {
+    max-height: 250px;
+  }
+
+  .toggle-button {
+    padding: 8px 12px;
+  }
 }

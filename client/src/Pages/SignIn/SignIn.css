@@ -1,4 +1,4 @@
-body {
+/* body {
   background: #e6e6e6;
 }
 
@@ -42,10 +42,6 @@ body {
   cursor: pointer;
   text-transform: uppercase;
 }
-
-/* .signin form .disabled {
-    opacity: 0.5;
-  } */
 
 .signin form button:hover {
   background: #191949;
@@ -103,4 +99,64 @@ body {
   .signin .haveAnAccount {
     font-size: 0.8rem;
   }
+} */
+
+/* SignIn.css */
+.signin {
+  max-width: 400px;
+  margin: auto;
+  padding: 2rem;
+  margin-top: 5rem;
+}
+
+.signin h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.toggle-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.toggle-container button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background-color: #fafafa;
+  color: #424242;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-container button.active {
+  background-color: #28287a;
+  color: #fff;
+  font-weight: bold;
+}
+
+form input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+
+form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #28287a;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.signin .error {
+  text-align: center;
+  color: #f14f4f;
+  margin-top: 0.5rem;
 }

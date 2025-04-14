@@ -17,6 +17,10 @@ const paymentSchema = new mongoose.Schema({
   receiptUrl: {
     type: String, // URL to the payment receipt
   },
+  propertyId: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true, // ensure every payment is tied to a property
+  },
 });
 
 const propertySchema = new mongoose.Schema({
@@ -40,11 +44,27 @@ const propertySchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  numberOfPlot: {
+    type: String,
+  },
+  plotNumber: {
+    type: String,
+  },
   paymentStatus: {
     type: String,
     enum: ["Paid", "Pending", "Installments Remaining"],
     default: "Pending", // could be paid, pending, or installments left
   },
+  imageUrl: {
+    type: String,
+    default: "",
+  },
+  documents: [
+    {
+      name: { type: String },
+      url: { type: String },
+    },
+  ],
 });
 
 const UserSchema = new mongoose.Schema(
@@ -72,9 +92,9 @@ const UserSchema = new mongoose.Schema(
       require: true,
     },
 
-    dateOfBirth: {
-      type: Date,
-      required: true,
+    isAdmin: {
+      type: Boolean,
+      default: false,
     },
 
     avatar: {

@@ -47,9 +47,9 @@ const Header = () => {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <button>
-              <FaSearch className="text-slate-600" />
-            </button>
+            {/* <button>
+              <FaSearch />
+            </button> */}
           </form>
         </div>
 
@@ -81,6 +81,19 @@ const Header = () => {
           >
             <li>Contact</li>
           </Link>
+
+          {currentUser && currentUser.isAdmin && (
+            <>
+              <Link
+                to="/assign-property"
+                className="link"
+                onClick={() => setMenuOpen(false)}
+              >
+                <li>Admin</li>
+              </Link>
+            </>
+          )}
+
           <Link
             to="/profile"
             className="link profile"

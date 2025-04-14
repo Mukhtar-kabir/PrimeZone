@@ -18,28 +18,15 @@ header .items {
   position: relative;
 }
 
-header .center form {
-  background: #fafafa;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 0.5rem;
-  border-radius: 5px;
-}
-
-header .center input {
-  border: none;
+header .center form input {
   background: none;
-  outline: none;
-  width: 90%;
+  background: #fafafa;
 }
 
 header .center button {
-  background: none;
-  border: none;
-  cursor: pointer;
   color: gold;
+  width: 0;
+  background: none;
 }
 
 header .items .left .link {
@@ -92,6 +79,10 @@ header .items .right .profile img {
 
   header .hamburger {
     display: block;
+  }
+
+  header .center form {
+    padding: 0 3px;
   }
 
   header .items .right {

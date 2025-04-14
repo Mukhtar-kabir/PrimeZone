@@ -52,6 +52,10 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.categories-hero .category-list .link {
+  color: #424242;
+}
+
 .categories-hero .category-list li {
   padding: 8px;
   cursor: pointer;
@@ -76,6 +80,11 @@
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
     line-height: 1.4;
+  }
+
+  .hero button {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
   }
 }
 
@@ -394,6 +403,7 @@
 .whatsapp-community h2 {
   font-size: 24px;
   margin-bottom: 10px;
+  color: #fafafa;
 }
 
 .whatsapp-community p {
@@ -556,6 +566,10 @@ footer .contact-container p {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.categories .category-list .link {
+  color: #424242;
+}
+
 .categories .category-list li {
   padding: 8px;
   cursor: pointer;
@@ -595,13 +609,14 @@ footer .contact-container p {
   }
 
   .categories {
-    padding: 7px;
-    right: 1rem;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.8rem;
+    right: 0.5rem;
     /* box-shadow: 2px 2px 2px 2px #b5b5d6; */
   }
 
   .categories-hero .category-list {
-    top: 20rem;
+    top: 18rem;
   }
 
   .categories .category-list {

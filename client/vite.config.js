@@ -13,6 +13,11 @@ export default defineConfig({
   },
 
   plugins: [react()],
+
+  test: {
+    environment: "jsdom", // ✅ This is necessary for testing React components
+    globals: true, // ✅ This allows using `describe`, `it`, `expect` without imports
+  },
 });
 
 // export default defineConfig({

@@ -51,6 +51,7 @@ app.listen(3000, () => {
 
 app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
+app.use("/api/users", userRouter);
 
 // app.use(express.static(path.join(__dirname, "client", "index.html")));
 

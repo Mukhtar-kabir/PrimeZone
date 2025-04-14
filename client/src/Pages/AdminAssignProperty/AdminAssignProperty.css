@@ -1,0 +1,123 @@
+/* AdminAssignProperty.css */
+
+/* Main container */
+.admin-container {
+  padding: 100px 50px;
+  max-width: 800px;
+  margin: 0 auto;
+  /* padding: 20px; */
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+/* Form styling */
+.assign-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.assign-form input,
+.assign-form select {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.assign-form input:focus,
+.assign-form select:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+button {
+  padding: 12px;
+  font-size: 1rem;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #357ab7;
+}
+
+button:disabled {
+  background-color: #c6c6c6;
+  cursor: not-allowed;
+}
+
+/* Documents section */
+h4 {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.doc-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.doc-group input {
+  width: 100%;
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button[type="button"] {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 8px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="button"]:hover {
+  background-color: #e0e0e0;
+}
+
+/* Spacing for better form readability */
+.assign-form input,
+.assign-form select {
+  margin-bottom: 10px;
+}
+
+/* Small screen responsiveness */
+@media (max-width: 600px) {
+  .admin-container {
+    padding: 10px;
+    margin-top: 5rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .assign-form input,
+  .assign-form select,
+  button {
+    font-size: 0.9rem;
+  }
+
+  button[type="button"] {
+    font-size: 0.9rem;
+  }
+}

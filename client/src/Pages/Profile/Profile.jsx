@@ -19,14 +19,13 @@ const BASE_URL = "https://prime-zone.vercel.app";
 const Profile = () => {
   const fileRef = useRef(null);
   const { currentUser, loading, error } = useSelector((state) => state.user);
-  const [errorMessage, SetErrorMessage] = useState(false);
   const dispatch = useDispatch();
   const [file, setFile] = useState(null);
   const [avatarUrl, setAvatarUrl] = useState(currentUser.avatar);
   const [uploading, setUploading] = useState(false);
   const [updateSuccess, setUpdateSuccess] = useState(false);
   const [showListingsError, setShowListingsError] = useState(false);
-  const [userListings, setUserListings] = useState([]);
+  const [errorMessage, setErrorMessage] = useState(false);
   const [formData, setFormData] = useState({
     username: currentUser.username,
     email: currentUser.email,
@@ -38,6 +37,36 @@ const Profile = () => {
     if (selectedFile) {
       setFile(selectedFile);
       await uploadImageToCloudinary(selectedFile);
+    }
+  };
+
+  const BASE_URL = "https://prime-zone.vercel.app";
+
+  const updateUserProfile = async (newAvatarUrl) => {
+    try {
+      dispatch(updateUserStart());
+      const res = await fetch(
+        `${BASE_URL}/api/user/update-avatar/${currentUser._id}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ avatar: newAvatarUrl }),
+        }
+      );
+
+      const data = await res.json();
+      if (data.success === false) {
+        dispatch(updateUserFailure(data.message));
+        setErrorMessage(data.message);
+        return;
+      }
+
+      dispatch(updateUserSuccess(data));
+      setUpdateSuccess(true);
+    } catch (error) {
+      dispatch(updateUserFailure(error.message));
     }
   };
 
@@ -55,7 +84,8 @@ const Profile = () => {
 
       const newAvatarUrl = response.data.secure_url;
       setAvatarUrl(newAvatarUrl); // Update preview
-      setFormData((prev) => ({ ...prev, avatar: newAvatarUrl }));
+      await updateUserProfile(newAvatarUrl);
+      // setFormData((prev) => ({ ...prev, avatar: newAvatarUrl }));
 
       // setAvatarUrl(response.data.secure_url);
       // updateUserProfile(response.data.secure_url);
@@ -71,46 +101,40 @@ const Profile = () => {
   };
 
   // Handle Form Submission
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
 
-    try {
-      dispatch(updateUserStart());
-      const res = await fetch(
-        `${BASE_URL}/api/user/update/${currentUser._id}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+  //   try {
+  //     dispatch(updateUserStart());
+  //     const res = await fetch(`/api/user/update/${currentUser._id}`, {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(formData),
+  //     });
 
-      const data = await res.json();
-      if (data.success === false) {
-        dispatch(updateUserFailure(data.message));
-        SetErrorMessage(false);
-        return;
-      }
+  //     const data = await res.json();
+  //     if (data.success === false) {
+  //       dispatch(updateUserFailure(data.message));
+  //       SetErrorMessage(false);
+  //       return;
+  //     }
 
-      dispatch(updateUserSuccess(data));
-      setUpdateSuccess(true);
-    } catch (error) {
-      dispatch(updateUserFailure(error.message));
-    }
-  };
+  //     dispatch(updateUserSuccess(data));
+  //     setUpdateSuccess(true);
+  //   } catch (error) {
+  //     dispatch(updateUserFailure(error.message));
+  //   }
+  // };
 
   const handleDeleteUser = async () => {
     try {
       dispatch(deleteUserStart());
 
-      const res = await fetch(
-        `${BASE_URL}/api/user/delete/${currentUser._id}`,
-        {
-          method: "DELETE",
-        }
-      );
+      const res = await fetch(`/api/user/delete/${currentUser._id}`, {
+        method: "DELETE",
+      });
       const data = await res.json();
       if (data.success === false) {
         dispatch(deleteUserFailure(data.message));
@@ -145,7 +169,7 @@ const Profile = () => {
   const handleSignOut = async () => {
     try {
       dispatch(signOutUserStart());
-      const res = await fetch(`${BASE_URL}/api/auth/signout`, {
+      const res = await fetch(`/api/auth/signout`, {
         method: "GET",
         credentials: "include", // Ensures cookies are sent
       });
@@ -189,7 +213,54 @@ const Profile = () => {
 
       {uploading && <p className="uploading">Uploading...</p>}
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={(e) => e.preventDefault()}>
+        {/* If the user is an admin, allow them to update credentials */}
+        {currentUser.isAdmin && (
+          <>
+            <input
+              value={formData.username}
+              type="text"
+              placeholder="Username"
+              id="username"
+              onChange={handleChange}
+            />
+            <input
+              value={formData.email}
+              type="email"
+              placeholder="Email"
+              id="email"
+              onChange={handleChange}
+            />
+            <input
+              value={formData.password}
+              type="password"
+              placeholder="Password"
+              id="password"
+              onChange={handleChange}
+            />
+          </>
+        )}
+
+        <button
+          disabled={loading}
+          className="disabled"
+          onClick={() => updateUserProfile(avatarUrl)}
+        >
+          {loading ? "Loading..." : "Update Profile"}
+        </button>
+
+        {!currentUser.isAdmin && (
+          <a href="/dashboard">
+            <p>Dashboard</p>
+          </a>
+        )}
+        <div className="items">
+          <span onClick={handleDeleteUser}>Delete account</span>
+          <span onClick={handleSignOut}>Sign Out</span>
+        </div>
+      </form>
+
+      {/* <form onSubmit={(e) => e.preventDefault()}>
         <input
           defaultValue={currentUser.username}
           type="username"
@@ -216,26 +287,24 @@ const Profile = () => {
           {loading ? "Loading..." : "Update"}
         </button>
 
-        <a href="/dashboard">
-          <p>Dashboard</p>
-        </a>
-
-        {/* <Link to={"/create-listing"} className="listing">
-          Create Listing
-        </Link> */}
+        {!currentUser.isAdmin && (
+          <a href="/dashboard">
+            <p>Dashboard</p>
+          </a>
+        )}
 
         <div className="items">
           <span onClick={handleDeleteUser}>Delete account</span>
           <span onClick={handleSignOut}>Sign Out</span>
         </div>
-      </form>
+      </form> */}
 
       <p className="error">{errorMessage ? "Fialed to Update" : ""}</p>
       <p className="success">
         {updateSuccess ? "User is updated successfully!" : ""}
       </p>
 
-      {userListings && userListings.length > 0 && (
+      {/* {userListings && userListings.length > 0 && (
         <div className="">
           <h1 className="">Your Listings</h1>
           {userListings.map((listing) => (
@@ -261,7 +330,7 @@ const Profile = () => {
             </div>
           ))}
         </div>
-      )}
+      )} */}
     </div>
   );
 };

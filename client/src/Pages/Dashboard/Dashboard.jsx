@@ -69,13 +69,15 @@ import { fetchUserData } from "../../redux/user/userSlice"; // Action to fetch u
 function Dashboard() {
   const { currentUser, properties, paymentHistory, pendingPayments } =
     useSelector((state) => state.user);
-  console.log("Current User:", currentUser);
+  // console.log("Current User:", currentUser);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (currentUser) {
-      dispatch(fetchUserData(currentUser.id)); // Dispatch action to fetch user-related data
+    if (currentUser && currentUser._id) {
+      dispatch(fetchUserData(currentUser._id)); // Fetch user data
+    } else {
+      console.log("No user ID found"); // Log message if user ID is undefined
     }
   }, [currentUser, dispatch]);
 
