@@ -169,7 +169,7 @@ const Profile = () => {
   const handleSignOut = async () => {
     try {
       dispatch(signOutUserStart());
-      const res = await fetch(`/api/auth/signout`, {
+      const res = await fetch(`${BASE_URL}/api/auth/signout`, {
         method: "GET",
         credentials: "include", // Ensures cookies are sent
       });
