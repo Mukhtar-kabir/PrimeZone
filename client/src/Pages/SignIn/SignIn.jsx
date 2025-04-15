@@ -167,7 +167,7 @@ const SignIn = () => {
           onClick={() => setMode("user")}
           className={mode === "user" ? "active" : ""}
         >
-          User
+          Customer
         </button>
         <button
           onClick={() => setMode("admin")}
