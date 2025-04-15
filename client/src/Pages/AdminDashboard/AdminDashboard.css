@@ -41,3 +41,9 @@
 .admin-actions button:hover {
   background-color: #005fcc;
 }
+
+@media (max-width: 900px) {
+  .admin-dashboard h2 {
+    font-size: 1.3rem;
+  }
+}
