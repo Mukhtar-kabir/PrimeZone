@@ -439,11 +439,15 @@ const Home = () => {
                   ownership without financial strain. In just 8 months, his
                   innovative flexible payment plans have empowered 100+ families
                   and investors to secure their dream plots across Kano’s prime
-                  estates. A tech-savvy entrepreneur, Muhseen was Nigeria’s 1st
-                  Agrohack competition winner 2023 (EDC & Mastercard Foundation)
-                  and also a winner in the Agrichacking Challenge (BUK & World
-                  Bank). His mission? To eliminate scams, simplify ownership,
-                  and build generational wealth for Kano’s residents.{" "}
+                  estates.
+                </p>{" "}
+                <br />
+                <p>
+                  A tech-savvy entrepreneur, Muhseen was Nigeria’s 1st Agrohack
+                  competition winner 2023 (EDC & Mastercard Foundation) and also
+                  a winner in the Agrichacking Challenge (BUK & World Bank). His
+                  mission? To eliminate scams, simplify ownership, and build
+                  generational wealth for Kano’s residents.{" "}
                 </p>
               </div>
             </div>

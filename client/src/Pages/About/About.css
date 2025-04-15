@@ -4,6 +4,8 @@
 
 .founder {
   padding: 80px 0;
+  background: #28287a;
+  color: #fafafa;
 }
 
 .founder .founder-container {
@@ -14,12 +16,22 @@
 .founder .founder-container h2 {
   text-align: center;
   margin-bottom: 2rem;
+  color: #fafafa;
+}
+
+.founder .founder-container p {
+  font-family: "Times New Roman", Times, serif;
+  line-height: 1.5;
 }
 
 .founder .founder-container .contents {
   display: flex;
   align-items: center;
   gap: 2rem;
+}
+
+.founder .founder-container .contents .content-item {
+  width: 50%;
 }
 
 .founder .founder-container .contents .content-item .content span {
@@ -29,6 +41,10 @@
 @media (max-width: 900px) {
   .founder .founder-container {
     width: 90%;
+  }
+
+  .founder .founder-container .contents .content-item {
+    width: 100%;
   }
 
   .founder .founder-container .contents {
