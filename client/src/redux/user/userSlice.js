@@ -6,7 +6,12 @@ export const fetchUserData = createAsyncThunk(
   "user/fetchUserData",
   async (userId, { rejectWithValue }) => {
     try {
-      const response = await fetch(`${BASE_URL}/api/users/${userId}`);
+      // const response = await fetch(`/api/users/${userId}`);
+      const response = await fetch(`/api/users/${userId}`, {
+        method: "GET",
+        credentials: "include", // 🔥 Needed to send cookies (session, JWT, etc)
+      });
+
       const data = await response.json();
       // console.log("Fetched User Data:", data);
 
