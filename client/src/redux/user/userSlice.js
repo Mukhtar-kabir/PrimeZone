@@ -12,7 +12,7 @@ export const fetchUserData = createAsyncThunk(
       // });
 
       const token = localStorage.getItem("access_token"); // Or wherever you store the token
-      const response = await fetch(`/api/users/${userId}`, {
+      const response = await fetch(`${BASE_URL}/api/users/${userId}`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`, // Send the token
