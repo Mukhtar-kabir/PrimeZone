@@ -28,6 +28,7 @@ import PropertyDetails from "./Pages/PropertyDetails/PropertyDetails";
 import LuxuryHomes from "./Pages/LuxuryHomes/LuxuryHomes";
 import DistressProperties from "./Pages/DistressProperties/DistressProperties";
 import AdminDashboard from "./Pages/AdminDashboard/AdminDashboard";
+import AdminCreateUser from "./Pages/AdminCreateUser/AdminCreateUser";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -54,18 +55,18 @@ const App = () => {
             <Route path="/sign-up" element={<SignUp />} />
             <Route path="/about" element={<About />} />
             <Route path="/search" element={<Search />} />
-            <Route element={<PrivateRoute />}>
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/my-properties" element={<MyProperties />} />
-              <Route path="/payment-history" element={<PaymentHistory />} />
-              <Route path="/pending-payments" element={<PendingPayments />} />
-              <Route path="/support-inquiries" element={<SupportInquiries />} />
-              <Route
-                path="/update-listing/:listingId"
-                element={<UpdateListing />}
-              />
-            </Route>
+
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/my-properties" element={<MyProperties />} />
+            <Route path="/payment-history" element={<PaymentHistory />} />
+            <Route path="/pending-payments" element={<PendingPayments />} />
+            <Route path="/support-inquiries" element={<SupportInquiries />} />
+            <Route
+              path="/update-listing/:listingId"
+              element={<UpdateListing />}
+            />
+
             <Route element={<AdminRoute />}>
               <Route
                 path="/assign-property"
