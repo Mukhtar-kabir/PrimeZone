@@ -74,7 +74,7 @@ function Dashboard() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (currentUser && currentUser._id) {
+    if (currentUser._id) {
       dispatch(fetchUserData(currentUser._id)); // Fetch user data
     } else {
       console.log("No user ID found"); // Log message if user ID is undefined
