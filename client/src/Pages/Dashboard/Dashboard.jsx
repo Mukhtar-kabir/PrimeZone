@@ -64,7 +64,7 @@ import React, { useEffect } from "react";
 import "../Dashboard/Dashboard.css";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchUserData } from "../../redux/user/userSlice"; // Action to fetch user data
+import { fetchUserData } from "../../redux/user/userSlice.js"; // Action to fetch user data
 
 function Dashboard() {
   const { currentUser, properties, paymentHistory, pendingPayments } =
