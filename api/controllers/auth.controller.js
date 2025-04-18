@@ -169,6 +169,8 @@ export const createUserByAdmin = async (req, res, next) => {
     res
       .cookie("access_token", token, {
         httpOnly: true,
+        secure: true,
+        sameSite: "None",
       })
       .status(201)
       .json({ success: true, message: "User created by admin." });
