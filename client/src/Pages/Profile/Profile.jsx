@@ -14,8 +14,6 @@ import {
   signoutUserFailure,
 } from "../../redux/user/userSlice";
 
-const BASE_URL = "https://prime-zone.vercel.app";
-
 const Profile = () => {
   const fileRef = useRef(null);
   const { currentUser, loading, error } = useSelector((state) => state.user);
