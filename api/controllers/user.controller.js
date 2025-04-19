@@ -225,7 +225,7 @@ export const assignPropertyToUser = async (req, res, next) => {
 
 export const getMe = async (req, res, next) => {
   try {
-    const user = await User.findById(req.user.id).populate("properties");
+    const user = await User.findById(req.user.id);
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
@@ -288,17 +288,17 @@ export const generateReceipt = async (req, res, next) => {
 };
 
 // GET /api/users/:id
-export const getUsers = async (req, res, next) => {
-  try {
-    const user = await User.findById(req.params.id).populate("properties");
-    if (!user) {
-      return res.status(404).json("User not found");
-    }
-    res.status(200).json(user);
-  } catch (err) {
-    next(err);
-  }
-};
+// export const getUsers = async (req, res, next) => {
+//   try {
+//     const user = await User.findById(req.params.id).populate("properties");
+//     if (!user) {
+//       return res.status(404).json("User not found");
+//     }
+//     res.status(200).json(user);
+//   } catch (err) {
+//     next(err);
+//   }
+// };
 
 export const getUser = async (req, res, next) => {
   try {

@@ -8,7 +8,6 @@ import {
   addProperty,
   addPayment,
   assignPropertyToUser,
-  getUsers,
   getMe,
   generateReceipt,
   getPaymentHistory,

@@ -100,8 +100,6 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { signInSuccess } from "../../redux/user/userSlice"; // Optional: update Redux with new data
 
-const BASE_URL = "https://prime-zone.vercel.app"; // or just use relative "/api"
-
 function Dashboard() {
   const dispatch = useDispatch();
   const { currentUser } = useSelector((state) => state.user);

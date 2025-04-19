@@ -241,7 +241,7 @@ const PropertyDetails = () => {
     const fetchProperty = async () => {
       try {
         const token = localStorage.getItem("access_token"); // Or wherever you store the token
-        const res = await fetch(`${BASE_URL}/api/users/me/${currentUser._id}`, {
+        const res = await fetch(`/api/users/me/${currentUser._id}`, {
           method: "GET",
           credentials: "include",
           headers: {
@@ -250,11 +250,22 @@ const PropertyDetails = () => {
         });
 
         const data = await res.json();
+        console.log("Fetched user data:", data);
 
         if (data && data.properties) {
+          // const matched = data.properties.find(
+          //   (prop) => prop._id === propertyId
+          // );
           const matched = data.properties.find(
-            (prop) => prop._id === propertyId
+            (prop) => String(prop._id) === String(propertyId)
           );
+          console.log(
+            "Available property IDs:",
+            data.properties.map((p) => p._id)
+          );
+          console.log("Looking for propertyId:", propertyId);
+
+          console.log("Matched property:", matched);
           setProperty(matched);
         } else {
           console.error("User properties not found", data);
