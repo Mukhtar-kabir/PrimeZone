@@ -141,6 +141,7 @@ const SignIn = () => {
     try {
       const res = await fetch(`${BASE_URL}/api/auth/signin`, {
         method: "POST",
+        credentials: "include",
         headers: {
           "Content-Type": "application/json",
         },
