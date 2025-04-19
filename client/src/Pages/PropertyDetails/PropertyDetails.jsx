@@ -243,6 +243,7 @@ const PropertyDetails = () => {
         const token = localStorage.getItem("access_token"); // Or wherever you store the token
         const res = await fetch(`${BASE_URL}/api/users/me/${currentUser._id}`, {
           method: "GET",
+          credentials: "include",
           headers: {
             Authorization: `Bearer ${token}`, // Send the token
           },
